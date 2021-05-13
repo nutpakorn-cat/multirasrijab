@@ -1,7 +1,7 @@
 <template>
 <div data-v-41458b80="" style="background: linear-gradient(rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%);">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-font" data-v-41458b80="" style="padding-left:51px;font-family:medium;background-color:transparent !important;">
-        <router-link active-class="" class="navbar-brand" to="/home"><img src="https://multirasrijab.s3-ap-southeast-1.amazonaws.com/300x300.png" style="width:83px;" data-v-41458b80=""></router-link><button style="margin-right: 27px" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-v-41458b80=""><span class="navbar-toggler-icon" data-v-41458b80=""></span></button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-font navbar-padding" data-v-41458b80="" style="font-family:medium;background-color:transparent !important;">
+        <router-link active-class="" class="navbar-brand" to="/home"><img src="https://multirasrijab.s3-ap-southeast-1.amazonaws.com/300x300.png" style="width:83px;" data-v-41458b80=""></router-link><button class="navbar-toggler navbar-margin" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-v-41458b80=""><span class="navbar-toggler-icon" data-v-41458b80=""></span></button>
         <div class="collapse navbar-collapse" id="navbarNav" data-v-41458b80="" style="padding-left: 30px;padding-right: 30px;">
             <ul v-if="isWelcome == false" class="navbar-nav" data-v-41458b80="" style="">
                 <li v-for="topic in topicList" :key="topic.topicId" class="nav-item" data-v-41458b80="" style="margin-right: 22px;"><router-link :class="{'nav-link': true, 'router-link-active': shouldActive(topic.topicPath)}" :to="'/topic/' + topic.topicPath" style="
@@ -99,6 +99,24 @@ a.nav-link {
 @media (max-width: 1074px) {
     .navbar-font {
         font-size: 14.5px;
+    }
+}
+
+@media (min-width: 425px) {
+    .navbar-margin {
+        margin-right: 27px
+    }
+    .navbar-padding {
+        padding-left: 51px;
+    }
+}
+
+@media (max-width: 424px) {
+    .navbar-margin {
+        margin-right: 18px
+    }
+    .navbar-padding {
+        padding-left: 37px;
     }
 }
 </style>

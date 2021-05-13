@@ -40,9 +40,21 @@ export default {
     }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
     .footer-image {
         height: 90px;width: 133px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -70px;
+    }
+}
+
+@media (min-width: 377px) and (max-width: 479px) {
+    .footer-image {
+        height: 90px;width: 100px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -50px;
+    }
+}
+
+@media (max-width: 376px) {
+    .footer-image {
+        height: 90px;width: 90px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -40px;
     }
 }
 </style>

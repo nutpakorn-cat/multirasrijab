@@ -4,7 +4,7 @@
     <div class="container text-center">
       <div class="row" style="margin-top: 82px; margin-bottom: 100px;">
       <div class="col-md-7">
-        <div class="player">
+        <div class="player player-margin player-padding">
           <iframe src="https://www.youtube-nocookie.com/embed/ptb3fZ_hKc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
@@ -50,7 +50,6 @@ body.home {
 .player {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; 
   height: 0;
   border-radius: 10px;
   overflow: hidden;
@@ -68,6 +67,7 @@ body.home {
 }
 
 @media (min-width: 768px) {
+
   .header-font {
     font-size: 74px;
   }
@@ -91,12 +91,75 @@ body.home {
   }
 }
 
-@media (max-width: 676px) {
+@media (min-width: 489px) and (max-width: 676px) {
   .header-font {
     font-size: 50px;
   }
   .description-font {
     font-size: 14px;
+  }
+}
+
+@media (min-width: 427px) and (max-width: 488px) {
+  .header-font {
+    font-size: 42px;
+  }
+  .description-font {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 426px) {
+  .header-font {
+    font-size: 33px;
+  }
+  .description-font {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 819px) {
+  .player-margin {
+    margin-top: 0px;
+  }
+}
+
+@media (min-width: 719px) and (max-width: 818px) {
+  .player-margin {
+    margin-top: 22px;
+  }
+}
+
+@media (min-width: 672px) and (max-width: 718px) {
+  .player-margin {
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 589px) and (max-width: 671px) {
+  .player-margin {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 588px) {
+  .player-margin {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 501px) {
+  .player-padding {
+    padding-bottom: 56.25%;
+  }
+}
+
+@media (max-width: 500px) {
+  .player-padding {
+    padding-bottom: 108.25%;
+  }
+  .player-margin {
+    margin-top: 20px;
   }
 }
 </style>
