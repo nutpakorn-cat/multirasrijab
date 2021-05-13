@@ -34,7 +34,15 @@ export default {
     text-align: center;
 }
 
-.footer-image {
-    height: 90px;width: 200px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -113px;
+@media (min-width: 768px) {
+    .footer-image {
+        height: 90px;width: 200px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -113px;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer-image {
+        height: 90px;width: 133px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -70px;
+    }
 }
 </style>

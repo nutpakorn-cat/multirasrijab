@@ -1,47 +1,65 @@
 <template>
 <div data-v-41458b80="" style="background: linear-gradient(rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%);">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" data-v-41458b80="" style="padding-left:51px;font-family:medium;font-size: 19px;background-color:transparent !important;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-font" data-v-41458b80="" style="padding-left:51px;font-family:medium;background-color:transparent !important;">
         <router-link active-class="" class="navbar-brand" to="/home"><img src="https://multirasrijab.s3-ap-southeast-1.amazonaws.com/300x300.png" style="width:83px;" data-v-41458b80=""></router-link><button style="margin-right: 27px" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-v-41458b80=""><span class="navbar-toggler-icon" data-v-41458b80=""></span></button>
         <div class="collapse navbar-collapse" id="navbarNav" data-v-41458b80="" style="padding-left: 30px;padding-right: 30px;">
-            <ul v-if="isWelcome == false" class="navbar-nav" data-v-41458b80="" style="
-                ">
-                <li class="nav-item" data-v-41458b80="" style="margin-right: 22px;"><router-link class="nav-link active" to="/animation" data-v-41458b80="" style="
+            <ul v-if="isWelcome == false" class="navbar-nav" data-v-41458b80="" style="">
+                <li v-for="topic in topicList" :key="topic.topicId" class="nav-item" data-v-41458b80="" style="margin-right: 22px;"><router-link :class="{'nav-link': true, 'router-link-active': shouldActive(topic.topicPath)}" :to="'/topic/' + topic.topicPath" style="
                     color: white;
-                    ">Animation</router-link></li>
-                <li class="nav-item" data-v-41458b80="" style="
-                    margin-right: 22px;
-                    "><a class="nav-link" href="#" data-v-41458b80="" style="
-                    color: white;
-                    ">Installation</a></li>
-                <li class="nav-item" data-v-41458b80="" style="
-                    margin-right: 22px;
-                    "><a class="nav-link" href="#" data-v-41458b80="" style="
-                    color: white;
-                    ">Corperate & Brand Identity</a></li>
-                <li class="nav-item" data-v-41458b80="" style="
-                    margin-right: 22px;
-                    "><a class="nav-link" href="#" data-v-41458b80="" style="
-                    color: white;
-                    ">Campaigns</a></li>
-                <li class="nav-item" data-v-41458b80="" style="
-                    margin-right: 22px;
-                    "><a class="nav-link" href="#" data-v-41458b80="" style="
-                    color: white;
-                    ">Interactive Media</a></li>
+                ">{{topic.topicName}}</router-link></li>
+                
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" data-v-41458b80=""><router-link class="nav-link" to="/about-us" style="
                     color: white;
-                    ">About Us<span class="sr-only" data-v-41458b80="">(current)</span></router-link></li>
+                    ">About Us</router-link></li>
             </ul>
         </div>
     </nav>
 </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Navbar',
-  props: ['isWelcome']
+  props: ['isWelcome'],
+  data() {
+      return {
+          topicList: [
+              {
+                topicId: 0,
+                topicName: 'Animation',
+                topicPath: 'animation'
+              }, 
+              {
+                topicId: 1,
+                topicName: 'Installation',
+                topicPath: 'installation'
+              },
+              {
+                topicId: 2,
+                topicName: 'Corperate & Brand Identity',
+                topicPath: 'corperate-and-brand-identity'
+              }, 
+              {
+                topicId: 3,
+                topicName: 'Campaigns',
+                topicPath: 'campaigns' 
+              },
+              {
+                topicId: 4,
+                topicName: 'Interactive Media',
+                topicPath: 'interactive-media'
+              }
+          ]
+      };
+  },
+  methods: {
+    shouldActive(path) {
+        return this.$route.path.includes(path);
+    }
+  }
 }
 </script>
 <style scoped>
@@ -64,5 +82,23 @@ a.nav-link {
     background-color: transparent;
     border: 0px solid transparent;
     border-radius: .25rem;
+}
+
+@media (min-width: 1148px) {
+    .navbar-font {
+        font-size: 19px;
+    }
+}
+
+@media (min-width: 1075px) and (max-width: 1147px) {
+    .navbar-font {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 1074px) {
+    .navbar-font {
+        font-size: 14.5px;
+    }
 }
 </style>

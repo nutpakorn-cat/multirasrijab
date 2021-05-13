@@ -1,17 +1,17 @@
 <template>
   <div>
     <Navbar :isWelcome="false" />
-    <div class="container">
+    <div class="container text-center">
       <div class="row" style="margin-top: 82px; margin-bottom: 100px;">
-      <div class="col-md-8">
+      <div class="col-md-7">
         <div class="player">
-          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ptb3fZ_hKc8?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/ptb3fZ_hKc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
-      <div class="col-md-4">
-        <h1 style="font-family: medium; color: white;font-size: 74px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ราศรีจับ</h1>
-        <div style="width: 250px;word-break: break-word;">
-          <p style="color: white;font-size: 16px;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+      <div class="col-md-5">
+        <h1 class="header-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ราศรีจับ</h1>
+        <div class="description-block" style="margin-left: auto; margin-right: auto;word-break: break-word;">
+          <p class="description-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
         </div>
       </div>
     </div>
@@ -48,12 +48,55 @@ body.home {
 
 <style scoped>
 .player {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
   border-radius: 10px;
   overflow: hidden;
   z-index: 1;
-  height: 315px;
-  width: 560px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.player iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .header-font {
+    font-size: 74px;
+  }
+  .description-font {
+    font-size: 16px;
+  }
+  .description-block {
+    width: 250px;
+  }
+}
+
+@media (min-width: 677px) and (max-width: 767px) {
+  .header-font {
+    font-size: 50px;
+  }
+  .description-font {
+    font-size: 14px;
+  }
+  .description-block {
+    width: 217px;
+  }
+}
+
+@media (max-width: 676px) {
+  .header-font {
+    font-size: 50px;
+  }
+  .description-font {
+    font-size: 14px;
+  }
 }
 </style>

@@ -11,7 +11,10 @@ export default {
 </script>
 
 <style>
+@import './assets/bootstrap.min.css';
 @import './assets/fonts.css';
+@import './assets/responsive.css';
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,6 +23,13 @@ body {
 .row {
   margin-left: 0px;
   margin-right: 0px;
+}
+.disable-select {
+    user-select: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
 }
 </style>
 

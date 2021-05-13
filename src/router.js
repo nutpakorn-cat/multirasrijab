@@ -3,12 +3,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 import WelcomeScreen from './screens/WelcomeScreen';
 import HomeScreen from './screens/HomeScreen';
 import AboutUsScreen from './screens/AboutUsScreen';
-import AnimationScreen from './screens/AnimationScreen';
+import TopicScreen from './screens/TopicScreen';
+import WorkScreen from './screens/WorkScreen';
 
 const routes = [
     {
         path: '/',
-        component: WelcomeScreen
+        component: WelcomeScreen,
     },
     {
         path: '/home',
@@ -19,8 +20,12 @@ const routes = [
         component: AboutUsScreen
     },
     {
-        path: '/animation',
-        component: AnimationScreen
+        path: '/topic/:type',
+        component: TopicScreen,
+    },
+    {
+        path: '/work/:type/:id',
+        component: WorkScreen,
     },
 ];
 

@@ -2,9 +2,9 @@
   <div>
     <Navbar :isWelcome="false" />
     <div class="container" style="margin-top:50px;">
-        <h1 style="font-family: medium; color: white;font-size: 50px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Animation</h1>
+        <h1 style="font-family: medium; color: white;font-size: 50px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{ topicName }}</h1>
         <div class="row" style="margin-top: 40px;">
-            <div class="col-md-6" style="margin-bottom: 70px;">
+            <div @click="goPage()" class="col-md-6 data" style="margin-bottom: 70px;">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="thumbnail">
@@ -190,21 +190,37 @@
 <script>
 import Navbar from './../components/Navbar';
 import FooterNotFix from './../components/FooterNotFix';
+import axios from 'axios';
 
 export default {
   beforeCreate: function() {
-    document.body.className = 'animation';
+    document.body.className = 'topic';
   },
-  name: 'AnimationScreen',
+  name: 'TopicScreen',
   components: {
     Navbar,
     FooterNotFix
+  },
+  data() {
+      return {
+          topicName: '',
+          topicPath: ''
+      };
+  },
+  created() {
+      this.topicName = 'Animation';
+      this.topicPath = 'animation';
+  },
+  methods: {
+      goPage() {
+          this.$router.push('/work/' + this.topicPath + '/1');
+      }
   }
 }
 </script>
 
 <style>
-body.animation { 
+body.topic { 
   background: url('https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Animation.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -246,5 +262,8 @@ body.animation {
   border-radius: 50%;
   display: inline-block;
   margin-bottom: 20px;
+}
+.data {
+    cursor: pointer;
 }
 </style>
