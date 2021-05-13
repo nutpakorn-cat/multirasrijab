@@ -4,38 +4,39 @@
     <div class="container" style="margin-bottom: 100px;">
       <div class="row" style="margin-top: 50px; margin-bottom: 130px;">
         <div class="col-md-6">
-          <h1 style="font-family: medium; color: white;font-size: 100px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ราศรีจับ</h1>
-          <div style="width: 325px;word-break: break-word;">
-            <p style="color: white;font-size: 24px;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+          <h1 class="header-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ราศรีจับ</h1>
+          <div style="word-break: break-word;">
+            <p class="content-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
           </div>
-          <br>
-          <img width="180" :src="require('@/assets/LOGO-BAR/SWU_College_Social_Communication_Innovation_EN_White.png')">
-          &nbsp;
-          <img width="150" :src="require('@/assets/LOGO-BAR/logo_multi_white.png')">
+          <div class="img-margin">
+            <img class="l-img-size" :src="require('@/assets/LOGO-BAR/SWU_College_Social_Communication_Innovation_EN_White.png')">
+            &nbsp;
+            <img class="r-img-size" :src="require('@/assets/LOGO-BAR/logo_multi_white.png')">
+          </div>
         </div>
         <div class="col-md-6">
-          <div style="width: 400px;word-break: break-word;">
-            <p style="color: white;font-size: 30px;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+          <div style="word-break: break-word;">
+            <p class="right-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
           </div>
         </div>
       </div>
-      <h1 class="text-center" style="color: white;margin-bottom: 80px;">SPECIAL THANKS</h1>
-      <div class="row text-center">
+      <h1 class="text-center special-font" style="color: white;margin-bottom: 80px;">SPECIAL THANKS</h1>
+      <div class="row text-center" style="margin-bottom: -50px;">
         <div class="col-md-3">
           <div class="circle"></div>
-          <h3 style="color: white;">NAME</h3>
+          <h3 class="name-font" style="color: white;">NAME</h3>
         </div>
         <div class="col-md-3">
           <div class="circle"></div>
-          <h3 style="color: white;">NAME</h3>
+          <h3 class="name-font" style="color: white;">NAME</h3>
         </div>
         <div class="col-md-3">
           <div class="circle"></div>
-          <h3 style="color: white;">NAME</h3>
+          <h3 class="name-font" style="color: white;">NAME</h3>
         </div>
         <div class="col-md-3">
           <div class="circle"></div>
-          <h3 style="color: white;">NAME</h3>
+          <h3 class="name-font" style="color: white;">NAME</h3>
         </div>
       </div>
     </div>
@@ -70,12 +71,184 @@ body.aboutus {
 </style>
 
 <style scoped>
-.circle {
-  height: 200px;
-  width: 200px;
-  background-color: rgb(0, 0, 0);
-  border-radius: 50%;
-  display: inline-block;
-  margin-bottom: 30px;
+@media (min-width: 874px) {
+  .name-font {
+    font-size: 19px;
+  }
+  .special-font {
+    font-size: 40px;
+  }
+  .img-margin {
+    margin-top: 40px;
+  }
+  .l-img-size {
+    width: 180px;
+  }
+  .r-img-size {
+    width: 150px;
+  }
+  .header-font {
+    font-size: 100px;
+  }
+  .content-font {
+    font-size: 24px;
+  }
+  .right-font {
+    font-size: 30px;
+  }
+  .circle {
+    height: 200px;
+    width: 200px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 725px) and (max-width: 991px) {
+  .circle {
+    height: 160px;
+    width: 160px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 622px) and (max-width: 724px) {
+  .circle {
+    height: 120px;
+    width: 120px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 702px) and (max-width: 873px) {
+  .name-font {
+    font-size: 13px;
+  }
+  .special-font {
+    font-size: 37px;
+  }
+  .img-margin {
+    margin-top: 40px;
+  }
+  .l-img-size {
+    width: 160px;
+  }
+  .r-img-size {
+    width: 130px;
+  }
+  .header-font {
+    font-size: 80px;
+  }
+  .content-font {
+    font-size: 18px;
+  }
+  .right-font {
+    font-size: 27px;
+  }
+}
+
+@media (min-width: 622px) and (max-width: 701px) {
+  .name-font {
+    font-size: 13px;
+  }
+  .special-font {
+    font-size: 35px;
+  }
+  .img-margin {
+    margin-top: 40px;
+  }
+  .l-img-size {
+    width: 140px;
+  }
+  .r-img-size {
+    width: 110px;
+  }
+  .header-font {
+    font-size: 80px;
+  }
+  .content-font {
+    font-size: 18px;
+  }
+  .right-font {
+    font-size: 27px;
+  }
+}
+
+@media (min-width: 542px) and (max-width: 621px) {
+  .name-font {
+    font-size: 13px;
+  }
+  .special-font {
+    font-size: 32px;
+  }
+  .img-margin {
+    margin-top: 30px;
+  }
+  .l-img-size {
+    width: 120px;
+  }
+  .r-img-size {
+    width: 90px;
+  }
+  .header-font {
+    font-size: 50px;
+  }
+  .content-font {
+    font-size: 16px;
+  }
+  .right-font {
+    font-size: 20px;
+  }
+  .circle {
+    height: 80px;
+    width: 80px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 541px) {
+  .name-font {
+    font-size: 10px;
+  }
+  .special-font {
+    font-size: 30px;
+  }
+  .img-margin {
+    margin-top: 22px;
+  }
+  .l-img-size {
+    width: 70px;
+  }
+  .r-img-size {
+    width: 55px;
+  }
+  .header-font {
+    font-size: 40px;
+  }
+  .content-font {
+    font-size: 16px;
+  }
+  .right-font {
+    font-size: 20px;
+  }
+  .circle {
+    height: 60px;
+    width: 60px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
 }
 </style>

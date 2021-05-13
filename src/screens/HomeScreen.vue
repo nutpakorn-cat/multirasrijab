@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar :isWelcome="false" />
-    <div class="container text-center">
+    <div class="container text-center height-device">
       <div class="row" style="margin-top: 82px; margin-bottom: 100px;">
       <div class="col-md-7">
         <div class="player player-margin player-padding">
@@ -160,6 +160,18 @@ body.home {
   }
   .player-margin {
     margin-top: 20px;
+  }
+}
+
+@media (max-height: 733px) {
+  .height-device {
+    margin-top: 0px;
+  }
+}
+
+@media (min-height: 734px) {
+  .height-device {
+    margin-top: 200px;
   }
 }
 </style>
