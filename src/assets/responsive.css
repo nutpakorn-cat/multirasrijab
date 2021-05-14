@@ -3,3 +3,6 @@
         padding-top: 9px;
     }
 }
+button.navbar-toggler.navbar-margin:focus {
+    outline: 0;
+}

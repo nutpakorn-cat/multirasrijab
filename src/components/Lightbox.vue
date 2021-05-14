@@ -209,14 +209,14 @@ export default {
     margin-right: auto;
     width: 80%;
     height: 300px;
-    background-size: contain;
+    background-size: cover;
     margin-bottom: 50px;
 }
 .selected {
     border: 2px solid yellow;
 }
 .thumbnail {
-    background-size: contain;
+    background-size: cover;
     cursor: pointer;
     height: 100px;
     width: 100%;

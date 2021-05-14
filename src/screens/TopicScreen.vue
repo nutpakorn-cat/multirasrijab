@@ -4,7 +4,7 @@
     <div class="container" style="margin-top:50px;">
         <h1 style="font-family: medium; color: white;font-size: 50px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{ topicName }}</h1>
         <div class="row" style="margin-top: 40px;">
-            <div v-for="(work, i) in workList" v-bind:key="work.workName" @click="goPage(work.workOwnerId)" class="col-md-6 data" style="margin-bottom: 70px;">
+            <div v-for="(work, i) in workList" v-bind:key="work.workName" @click="goPage(work.workId)" class="col-md-6 data" style="margin-bottom: 70px;">
                 <div class="row">
                     <div class="col-md-6">
                         <div :style="{backgroundImage: 'url(' + work.workImage + ')'}" class="thumbnail">
@@ -19,8 +19,8 @@
                                 <div :style="{backgroundImage: 'url(' + work.workOwnerImage + ')'}" class="circle"></div>
                             </div>
                             <div class="col-md-6" style="padding-top: 8px;">
-                                <h5 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName}}</h5>
-                                <h5 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h5>
+                                <h5 style="font-family: medium; color: white;font-size: 15px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName}}</h5>
+                                <h5 style="font-family: medium; color: white;font-size: 15px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h5>
                             </div>
                         </div>
                     </div>
@@ -59,6 +59,7 @@ export default {
       this.topicPath = 'animation';
       this.workList = [
           {
+              workId: '1',
                 workName: 'Work Name',
                 workText: 'XXXXXXXXXXX',
                 workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
@@ -67,6 +68,7 @@ export default {
                 workOwnerId: 'XXXXXXXXXXX'
             },
             {
+                workId: '2',
                 workName: 'Work Name',
                 workText: 'XXXXXXXXXXX',
                 workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
@@ -75,6 +77,7 @@ export default {
                 workOwnerId: 'XXXXXXXXXXX'
             },
             {
+                workId: '3',
                 workName: 'Work Name',
                 workText: 'XXXXXXXXXXX',
                 workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
@@ -83,6 +86,7 @@ export default {
                 workOwnerId: 'XXXXXXXXXXX'
             },
             {
+                workId: '4',
                 workName: 'Work Name',
                 workText: 'XXXXXXXXXXX',
                 workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',

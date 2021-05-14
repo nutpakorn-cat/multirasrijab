@@ -65,6 +65,7 @@ export default {
     this.work = {
         workId: '1',
         workName: 'Work Name',
+        workOwnerId: 'XXXXXXXXXXX',
         workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
         workOwnerName: 'XXXXXXXX XXXXXXXX',
         workOwnerJournal: 'https://www.google.com',
