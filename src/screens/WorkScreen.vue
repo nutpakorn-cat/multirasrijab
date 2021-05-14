@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <FooterHasItem />
+    <FooterHasItem :leftId="work.leftId" :rightId="work.rightId" :topicPath="topicPath" />
   </div>
 </template>
 
@@ -53,12 +53,14 @@ export default {
   data() {
     return {
       topicName: '',
+      topicPath: '',
       workOwnerId: '',
       work: {}
     };
   },
   created() {
     this.topicName = this.$route.query.type;
+    this.topicPath = 'animation';
     this.workOwnerId = this.$route.query.id;
     this.work = {
         workId: '1',
@@ -69,7 +71,9 @@ export default {
         workOwnerFacebook: 'https://www.google.com',
         workOwnerInstagram: 'https://www.google.com',
         workOwnerEmail: 'abc@abc.com',
-        workDescription: 'ทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความ'
+        workDescription: 'ทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความ',
+        leftId: '047',
+        rightId: '002',
       };
   }
 }

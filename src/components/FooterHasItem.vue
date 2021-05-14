@@ -16,7 +16,7 @@
                         <br>
                         <br>
                         <br>
-                        <h3 style="color: grey;border-bottom: 2px solid grey;">048</h3>
+                        <router-link :to="'/work/' + topicPath + '/' + leftId"><h3 style="color: grey;border-bottom: 2px solid grey;">{{leftId}}</h3></router-link>
                     </div>
                     <div class="col-md-4">
                         <br>
@@ -29,7 +29,7 @@
                         <br>
                         <br>
                         <br>
-                        <h3 style="color: grey;border-bottom: 2px solid grey;">002</h3>
+                        <router-link :to="'/work/' + topicPath + '/' + rightId"><h3 style="color: grey;border-bottom: 2px solid grey;">{{rightId}}</h3></router-link>
                     </div>
                 </div>
             </div>
@@ -42,9 +42,23 @@
 <script>
 export default {
   name: 'FooterHasItem',
+  props: {
+      leftId: {
+          type: String
+      },
+      rightId: {
+          type: String
+      },
+      topicPath: {
+          type: String
+      }
+  },
 }
 </script>
 <style scoped>
+a:hover {
+    text-decoration: none;
+}
 .footer {
     height: 100%;
     left: 0;
