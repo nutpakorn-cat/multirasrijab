@@ -4,177 +4,23 @@
     <div class="container" style="margin-top:50px;">
         <h1 style="font-family: medium; color: white;font-size: 50px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{ topicName }}</h1>
         <div class="row" style="margin-top: 40px;">
-            <div @click="goPage()" class="col-md-6 data" style="margin-bottom: 70px;">
+            <div v-for="(work, i) in workList" v-bind:key="work.workName" @click="goPage(work.workOwnerId)" class="col-md-6 data" style="margin-bottom: 70px;">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="thumbnail">
-                            <div class="block text-center">1</div>
+                        <div :style="{backgroundImage: 'url(' + work.workImage + ')'}" class="thumbnail">
+                            <div class="block text-center">{{i+1}}</div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h3 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Work Name</h3>
-                        <h4 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">TEXT (คำโปรย)</h4>
+                        <h3 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
+                        <h4 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workText}}</h4>
                         <div class="row" style="margin-top: 15px;">
                             <div class="col-md-6">
-                                <div class="circle"></div>
+                                <div :style="{backgroundImage: 'url(' + work.workOwnerImage + ')'}" class="circle"></div>
                             </div>
                             <div class="col-md-6" style="padding-top: 8px;">
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">NAME</h5>
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ID</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6" style="margin-bottom: 70px;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="thumbnail">
-                            <div class="block text-center">1</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Work Name</h3>
-                        <h4 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">TEXT (คำโปรย)</h4>
-                        <div class="row" style="margin-top: 15px;">
-                            <div class="col-md-6">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="col-md-6" style="padding-top: 8px;">
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">NAME</h5>
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ID</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6" style="margin-bottom: 70px;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="thumbnail">
-                            <div class="block text-center">1</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Work Name</h3>
-                        <h4 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">TEXT (คำโปรย)</h4>
-                        <div class="row" style="margin-top: 15px;">
-                            <div class="col-md-6">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="col-md-6" style="padding-top: 8px;">
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">NAME</h5>
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ID</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6" style="margin-bottom: 70px;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="thumbnail">
-                            <div class="block text-center">1</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Work Name</h3>
-                        <h4 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">TEXT (คำโปรย)</h4>
-                        <div class="row" style="margin-top: 15px;">
-                            <div class="col-md-6">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="col-md-6" style="padding-top: 8px;">
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">NAME</h5>
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ID</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6" style="margin-bottom: 70px;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="thumbnail">
-                            <div class="block text-center">1</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Work Name</h3>
-                        <h4 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">TEXT (คำโปรย)</h4>
-                        <div class="row" style="margin-top: 15px;">
-                            <div class="col-md-6">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="col-md-6" style="padding-top: 8px;">
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">NAME</h5>
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ID</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6" style="margin-bottom: 70px;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="thumbnail">
-                            <div class="block text-center">1</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Work Name</h3>
-                        <h4 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">TEXT (คำโปรย)</h4>
-                        <div class="row" style="margin-top: 15px;">
-                            <div class="col-md-6">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="col-md-6" style="padding-top: 8px;">
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">NAME</h5>
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ID</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6" style="margin-bottom: 70px;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="thumbnail">
-                            <div class="block text-center">1</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Work Name</h3>
-                        <h4 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">TEXT (คำโปรย)</h4>
-                        <div class="row" style="margin-top: 15px;">
-                            <div class="col-md-6">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="col-md-6" style="padding-top: 8px;">
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">NAME</h5>
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ID</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6" style="margin-bottom: 70px;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="thumbnail">
-                            <div class="block text-center">1</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Work Name</h3>
-                        <h4 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">TEXT (คำโปรย)</h4>
-                        <div class="row" style="margin-top: 15px;">
-                            <div class="col-md-6">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="col-md-6" style="padding-top: 8px;">
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">NAME</h5>
-                                <h5 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ID</h5>
+                                <h5 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName}}</h5>
+                                <h5 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h5>
                             </div>
                         </div>
                     </div>
@@ -204,16 +50,51 @@ export default {
   data() {
       return {
           topicName: '',
-          topicPath: ''
+          topicPath: '',
+          workList: []
       };
   },
   created() {
       this.topicName = 'Animation';
       this.topicPath = 'animation';
+      this.workList = [
+          {
+                workName: 'Work Name',
+                workText: 'XXXXXXXXXXX',
+                workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
+                workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
+                workOwnerName: 'NAME',
+                workOwnerId: 'XXXXXXXXXXX'
+            },
+            {
+                workName: 'Work Name',
+                workText: 'XXXXXXXXXXX',
+                workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
+                workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
+                workOwnerName: 'NAME',
+                workOwnerId: 'XXXXXXXXXXX'
+            },
+            {
+                workName: 'Work Name',
+                workText: 'XXXXXXXXXXX',
+                workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
+                workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
+                workOwnerName: 'NAME',
+                workOwnerId: 'XXXXXXXXXXX'
+            },
+            {
+                workName: 'Work Name',
+                workText: 'XXXXXXXXXXX',
+                workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
+                workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
+                workOwnerName: 'NAME',
+                workOwnerId: 'XXXXXXXXXXX'
+            }
+      ]
   },
   methods: {
-      goPage() {
-          this.$router.push('/work/' + this.topicPath + '/1');
+      goPage(workOwnerId) {
+          this.$router.push('/work/' + this.topicPath + '/' + workOwnerId);
       }
   }
 }
@@ -242,7 +123,7 @@ body.topic {
 .thumbnail {
     height: 100%;
     width: 100%;
-    background-color: black;
+    background-size: cover;
 }
 .block {
     font-family: 'text';
@@ -258,7 +139,7 @@ body.topic {
 .circle {
   height: 80px;
   width: 80px;
-  background-color: rgb(0, 0, 0);
+  background-size: cover;
   border-radius: 50%;
   display: inline-block;
   margin-bottom: 20px;

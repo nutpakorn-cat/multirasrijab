@@ -7,26 +7,26 @@
                 <Lightbox />
             </div>
             <div class="col-md-5">
-                <h4 style="font-family: medium; color: #909090;font-size: 23px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Animation</h4>
-                <h3 style="font-family: medium; color: white;font-size: 37px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">Work Name</h3>
+                <h4 style="font-family: medium; color: #909090;font-size: 23px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{topicName}}</h4>
+                <h3 style="font-family: medium; color: white;font-size: 37px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
                 <div class="row" style="margin-top: 40px;padding-left: 30px;">
                     <div class="col-md-3" style="margin-bottom: 18px;">
-                        <div class="circle">
-                            <div class="block text-center">1</div>
+                        <div :style="{backgroundImage: 'url(' + work.workOwnerImage + ')'}" class="circle">
+                            <div class="block text-center">{{work.workId}}</div>
                         </div>
                     </div>
                     <div class="col-md-9">
                         <br>
-                        <h3 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">XXXXXXXX XXXXXXXXXXX</h3>
-                        <h3 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">XXXXXXXXXXX</h3>
+                        <h3 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName}}</h3>
+                        <h3 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h3>
                     </div>
                 </div>
-                <a href="#" class="btn btn-theme" style="margin-right: 10px;">Journal</a>
-                <a href="#" class="btn btn-theme" style="margin-right: 10px;">FB</a>
-                <a href="#" class="btn btn-theme" style="margin-right: 10px;">IG</a>
-                <a href="#" class="btn btn-theme" style="margin-right: 10px;">EMAIL</a>
+                <a :href="work.workOwnerJournal" class="btn btn-theme" style="margin-right: 10px;">Journal</a>
+                <a :href="work.workOwnerFacebook" class="btn btn-theme" style="margin-right: 10px;">FB</a>
+                <a :href="work.workOwnerInstagram" class="btn btn-theme" style="margin-right: 10px;">IG</a>
+                <a :href="'mailto:' + work.workOwnerEmail" class="btn btn-theme" style="margin-right: 10px;">EMAIL</a>
                 <div class="text-box">
-                    <p>ทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความ</p>
+                    <p>{{work.workDescription}}</p>
                 </div>
             </div>
         </div>
@@ -49,6 +49,28 @@ export default {
     Lightbox,
     Navbar,
     FooterHasItem
+  },
+  data() {
+    return {
+      topicName: '',
+      workOwnerId: '',
+      work: {}
+    };
+  },
+  created() {
+    this.topicName = this.$route.query.type;
+    this.workOwnerId = this.$route.query.id;
+    this.work = {
+        workId: '1',
+        workName: 'Work Name',
+        workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
+        workOwnerName: 'XXXXXXXX XXXXXXXX',
+        workOwnerJournal: 'https://www.google.com',
+        workOwnerFacebook: 'https://www.google.com',
+        workOwnerInstagram: 'https://www.google.com',
+        workOwnerEmail: 'abc@abc.com',
+        workDescription: 'ทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความ'
+      };
   }
 }
 </script>
@@ -84,7 +106,7 @@ body.work {
 .circle {
   height: 80px;
   width: 80px;
-  background-color: rgb(0, 0, 0);
+  background-size: cover;
   border-radius: 50%;
   display: inline-block;
   margin-bottom: 20px;

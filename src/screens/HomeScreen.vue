@@ -5,13 +5,13 @@
       <div class="row" style="margin-top: 82px; margin-bottom: 100px;">
       <div class="col-md-7">
         <div class="player player-margin player-padding">
-          <iframe src="https://www.youtube-nocookie.com/embed/ptb3fZ_hKc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe :src="homeData.mediaClip" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
       <div class="col-md-5">
-        <h1 class="header-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">ราศรีจับ</h1>
+        <h1 class="header-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{homeData.header}}</h1>
         <div class="description-block" style="margin-left: auto; margin-right: auto;word-break: break-word;">
-          <p class="description-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+          <p class="description-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">{{homeData.content}}</p>
         </div>
       </div>
     </div>
@@ -29,6 +29,18 @@ export default {
     document.body.className = 'home';
   },
   name: 'HomeScreen',
+  data() {
+    return {
+      homeData: {},
+    };
+  },
+  created() {
+    this.homeData = {
+      mediaClip: 'https://www.youtube-nocookie.com/embed/ptb3fZ_hKc8',
+      header: 'ราศรีจับ',
+      content: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    };
+  },
   components: {
     Navbar,
     FooterNoCenter
@@ -163,13 +175,13 @@ body.home {
   }
 }
 
-@media (max-height: 733px) {
+@media (max-height: 1000px) {
   .height-device {
     margin-top: 0px;
   }
 }
 
-@media (min-height: 734px) {
+@media (min-height: 1001px) {
   .height-device {
     margin-top: 200px;
   }
