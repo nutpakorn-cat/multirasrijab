@@ -54,22 +54,29 @@ export default {
           workList: []
       };
   },
-  async created() {
-      
-      this.topicPath = this.$route.params.type;
-
-      const topicNameData = await axios.post(require('./../host') + '/topic', {
-          topicPath: this.topicPath
-      });
-
-      this.topicName = topicNameData.data.topicName;
-
-      const workListData = await axios.get(require('./../host') +'/work');
-      this.workList = workListData.data;
+  watch: {
+    $route (to, from) {
+        this.fetchData();
+    }
+  },
+  created() {
+    this.fetchData();
   },
   methods: {
       goPage(workOwnerId) {
           this.$router.push('/work/' + this.topicPath + '/' + workOwnerId);
+      },
+      async fetchData() {
+        this.topicPath = this.$route.params.type;
+
+        const topicNameData = await axios.post(require('./../host') + '/topic', {
+            topicPath: this.topicPath
+        });
+
+        this.topicName = topicNameData.data.topicName;
+
+        const workListData = await axios.get(require('./../host') +'/work');
+        this.workList = workListData.data;
       }
   }
 }

@@ -59,23 +59,32 @@ export default {
       work: {}
     };
   },
-  async created() {
+  watch: {
+    $route (to, from) {
+        this.fetchData();
+    }
+  },
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      this.workId = this.$route.params.id;
 
-    this.workId = this.$route.params.id;
+      this.topicPath = this.$route.params.type;
 
-    this.topicPath = this.$route.params.type;
+      const topicNameData = await axios.post(require('./../host') + '/topic', {
+          topicPath: this.topicPath
+      });
 
-    const topicNameData = await axios.post(require('./../host') + '/topic', {
-        topicPath: this.topicPath
-    });
+      this.topicName = topicNameData.data.topicName;
+      
+      const workData = await axios.post(require('./../host') + '/work', {
+          workId: this.workId
+      });
 
-    this.topicName = topicNameData.data.topicName;
-    
-    const workData = await axios.post(require('./../host') + '/work', {
-        workId: this.workId
-    });
-
-    this.work = workData.data;
+      this.work = workData.data;
+    }
   }
 }
 </script>

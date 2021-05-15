@@ -22,7 +22,7 @@
                         <br>
                         <br>
                         <br>
-                        <h3 style="color: white;border-bottom: 2px solid white;">001</h3>
+                        <h3 style="color: white;border-bottom: 2px solid white;">{{workId}}</h3>
                     </div>
                     <div class="col-md-4" style="cursor: pointer;">
                         <br>
@@ -57,13 +57,20 @@ export default {
   },
   data() {
       return {
+          workId: '',
           footerData: {
             facebook: '',
             copyright: ''
           }
       };
   },
+  watch: {
+    $route (to, from) {
+        this.workId = this.$route.params.id;
+    }
+  },
   async created() {
+    this.workId = this.$route.params.id;
     const data = await axios.get(require('./../host') +'/footer');
     this.footerData = data.data;
   }
