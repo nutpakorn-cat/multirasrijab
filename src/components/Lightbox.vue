@@ -71,34 +71,36 @@ export default {
             mediaList: []
         }
     },
-    async created() {
-
-        const mediaListData = await axios.post(require('./../host') + '/media', {
-            workId: this.workId
-        });
-
-        this.mediaList = mediaListData.data;
-
-        if (!this.mediaList.length)
-            this.hasMedia = false;
-
-        if (this.mediaList.length == 1) {
-            this.secondIndex = -10;
-            this.thirdIndex = -10;
-        }
-
-        if (this.mediaList.length == 2) {
-            this.thirdIndex = -10;
-        }
-
-        if (this.mediaList.length <= 3) {
-            this.useBar = false;
-        }
-
-        this.updateViewer();
-        this.updateSelectImage();
+    created() {
+        this.fetchData();
     },
     methods: {
+        async fetchData() {
+            const mediaListData = await axios.post(require('./../host') + '/media', {
+                workId: this.workId
+            });
+
+            this.mediaList = mediaListData.data;
+
+            if (!this.mediaList.length)
+                this.hasMedia = false;
+
+            if (this.mediaList.length == 1) {
+                this.secondIndex = -10;
+                this.thirdIndex = -10;
+            }
+
+            if (this.mediaList.length == 2) {
+                this.thirdIndex = -10;
+            }
+
+            if (this.mediaList.length <= 3) {
+                this.useBar = false;
+            }
+
+            this.updateViewer();
+            this.updateSelectImage();
+        },
         updateViewer() {
             this.selectedImage = this.mediaList[this.selectedIndex].mediaPath;
             this.selectedType = this.mediaList[this.selectedIndex].mediaType;
