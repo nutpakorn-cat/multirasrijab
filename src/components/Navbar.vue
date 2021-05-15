@@ -26,34 +26,12 @@ export default {
   props: ['isWelcome'],
   data() {
       return {
-          topicList: [
-              {
-                topicId: 0,
-                topicName: 'Animation',
-                topicPath: 'animation'
-              }, 
-              {
-                topicId: 1,
-                topicName: 'Installation',
-                topicPath: 'installation'
-              },
-              {
-                topicId: 2,
-                topicName: 'Corperate & Brand Identity',
-                topicPath: 'corperate-and-brand-identity'
-              }, 
-              {
-                topicId: 3,
-                topicName: 'Campaigns',
-                topicPath: 'campaigns' 
-              },
-              {
-                topicId: 4,
-                topicName: 'Interactive Media',
-                topicPath: 'interactive-media'
-              }
-          ]
+          topicList: []
       };
+  },
+  async created() {
+      const data = await axios(require('./../host') +'/navbar');
+      this.topicList = data.data;
   },
   methods: {
     shouldActive(path) {

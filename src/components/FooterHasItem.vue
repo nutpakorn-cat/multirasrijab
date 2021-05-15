@@ -2,7 +2,7 @@
     <div class="footer">
         <div class="row" style="overflow: hidden;">
             <div class="col-md-4 text-left">
-                <a href="https://facebook.com">
+                <a :href="footerDatafacebook">
                     <img :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130" style="
                         top: 58px;
                         position: relative;
@@ -34,12 +34,14 @@
                 </div>
             </div>
             <div class="col-md-4 text-right">
-                <p data-v-fb3d7926="" style="color: rgb(160, 160, 160);line-height: 142px;margin-right: 53px;top: 58px;position: relative;">Copyright</p>
+                <p data-v-fb3d7926="" style="color: rgb(160, 160, 160);line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
             </div>
         </div>
     </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   name: 'FooterHasItem',
   props: {
@@ -53,6 +55,18 @@ export default {
           type: String
       }
   },
+  data() {
+      return {
+          footerData: {
+            facebook: '',
+            copyright: ''
+          }
+      };
+  },
+  async created() {
+    const data = await axios.get(require('./../host') +'/footer');
+    this.footerData = data.data;
+  }
 }
 </script>
 <style scoped>

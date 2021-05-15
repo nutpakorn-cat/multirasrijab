@@ -47,11 +47,38 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'Lightbox',
-    components: {
+    props: ['workId'],
+    components: {},
+    data() {
+        return {
+            showModal: false,
+            selectedIndex: 0,
+            selectedImage: '',
+            selectedClip: '',
+            selectedType: '',
+            firstIndex: 0,
+            firstImage: '',
+            secondIndex: 1,
+            secondImage: '',
+            thirdIndex: 2,
+            thirdImage: '',
+            hasMedia: true,
+            useBar: true,
+            mediaList: []
+        }
     },
-    created() {
+    async created() {
+
+        const mediaListData = await axios.post(require('./../host') + '/media', {
+            workId: this.workId
+        });
+
+        this.mediaList = mediaListData.data;
+
         if (!this.mediaList.length)
             this.hasMedia = false;
 
@@ -70,42 +97,6 @@ export default {
 
         this.updateViewer();
         this.updateSelectImage();
-    },
-    data() {
-        return {
-            showModal: false,
-            selectedIndex: 0,
-            selectedImage: '',
-            selectedClip: '',
-            selectedType: '',
-            firstIndex: 0,
-            firstImage: '',
-            secondIndex: 1,
-            secondImage: '',
-            thirdIndex: 2,
-            thirdImage: '',
-            hasMedia: true,
-            useBar: true,
-            mediaList: [
-                {
-                    mediaType: 'image',
-                    mediaPath: 'https://inwfile.com/s-cn/pmjb8t.jpg'
-                },
-                {
-                    mediaType: 'youtube',
-                    mediaPath: 'https://inwfile.com/s-cn/pmjb8t.jpg',
-                    mediaClip: 'https://www.youtube.com/embed/ptb3fZ_hKc8'
-                },
-                {
-                    mediaType: 'image',
-                    mediaPath: 'https://www.zixzester.com/wp-content/uploads/2020/11/acastro_191014_1777_google_pixel_0005.0.jpg'
-                },
-                {
-                    mediaType: 'image',
-                    mediaPath: 'https://s3.amazonaws.com/images.seroundtable.com/google-globe-1579180515.gif'
-                },
-            ]
-        }
     },
     methods: {
         updateViewer() {
@@ -134,13 +125,13 @@ export default {
             return (number >= this.mediaList.length) ? 0 : number;
         },
         updateSelectImage() {
-            if (this.firstImage != -10)
+            if (this.firstIndex != -10)
                 this.firstImage = this.mediaList[this.firstIndex].mediaPath;
             
-            if (this.secondImage != -10)
+            if (this.secondIndex != -10)
                 this.secondImage = this.mediaList[this.secondIndex].mediaPath;
 
-            if (this.thirdImage != -10)
+            if (this.thirdIndex != -10)
                 this.thirdImage = this.mediaList[this.thirdIndex].mediaPath;
         },
         clickLeft() {
@@ -155,18 +146,6 @@ export default {
             this.thirdIndex = this.checkUpperBound(this.thirdIndex + 1);
             this.updateSelectImage();
         },
-        toggleFullscreen(element) {
-            if (document.fullscreenElement) { 
-                return document.exitFullscreen() // exit fullscreen on next click
-            }
-            if (element.requestFullscreen) {
-                element.requestFullscreen()
-            } else if (this.element.webkitRequestFullscreen) {
-                element.webkitRequestFullscreen() // Safari
-            } else if (this.element.msRequestFullscreen) {
-                element.msRequestFullscreen() // IE11
-            }
-        }
     }
 }
 </script>

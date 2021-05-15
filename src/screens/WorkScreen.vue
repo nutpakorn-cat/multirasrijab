@@ -4,7 +4,7 @@
     <div class="container" style="margin-top:40px; margin-bottom: -10px;">
         <div class="row">
             <div class="col-md-7">
-                <Lightbox />
+                <Lightbox :workId="workId" />
             </div>
             <div class="col-md-5">
                 <h4 style="font-family: medium; color: #909090;font-size: 23px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{topicName}}</h4>
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Navbar from './../components/Navbar';
 import FooterHasItem from './../components/FooterHasItem';
 import Lightbox from './../components/Lightbox';
@@ -54,28 +55,27 @@ export default {
     return {
       topicName: '',
       topicPath: '',
-      workOwnerId: '',
+      workId: '',
       work: {}
     };
   },
-  created() {
-    this.topicName = this.$route.query.type;
-    this.topicPath = 'animation';
-    this.workOwnerId = this.$route.query.id;
-    this.work = {
-        workId: '1',
-        workName: 'Work Name',
-        workOwnerId: 'XXXXXXXXXXX',
-        workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
-        workOwnerName: 'XXXXXXXX XXXXXXXX',
-        workOwnerJournal: 'https://www.google.com',
-        workOwnerFacebook: 'https://www.google.com',
-        workOwnerInstagram: 'https://www.google.com',
-        workOwnerEmail: 'abc@abc.com',
-        workDescription: 'ทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความทดสอบการใส่ข้อความ',
-        leftId: '047',
-        rightId: '002',
-      };
+  async created() {
+
+    this.workId = this.$route.params.id;
+
+    this.topicPath = this.$route.params.type;
+
+    const topicNameData = await axios.post(require('./../host') + '/topic', {
+        topicPath: this.topicPath
+    });
+
+    this.topicName = topicNameData.data.topicName;
+    
+    const workData = await axios.post(require('./../host') + '/work', {
+        workId: this.workId
+    });
+
+    this.work = workData.data;
   }
 }
 </script>

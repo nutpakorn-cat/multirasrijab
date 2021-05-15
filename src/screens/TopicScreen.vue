@@ -54,47 +54,18 @@ export default {
           workList: []
       };
   },
-  created() {
-      this.topicName = 'Animation';
-      this.topicPath = 'animation';
-      this.workList = [
-          {
-              workId: '1',
-                workName: 'Work Name',
-                workText: 'XXXXXXXXXXX',
-                workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
-                workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
-                workOwnerName: 'NAME',
-                workOwnerId: 'XXXXXXXXXXX'
-            },
-            {
-                workId: '2',
-                workName: 'Work Name',
-                workText: 'XXXXXXXXXXX',
-                workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
-                workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
-                workOwnerName: 'NAME',
-                workOwnerId: 'XXXXXXXXXXX'
-            },
-            {
-                workId: '3',
-                workName: 'Work Name',
-                workText: 'XXXXXXXXXXX',
-                workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
-                workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
-                workOwnerName: 'NAME',
-                workOwnerId: 'XXXXXXXXXXX'
-            },
-            {
-                workId: '4',
-                workName: 'Work Name',
-                workText: 'XXXXXXXXXXX',
-                workImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
-                workOwnerImage: 'https://www.w3schools.com/w3css/img_lights.jpg',
-                workOwnerName: 'NAME',
-                workOwnerId: 'XXXXXXXXXXX'
-            }
-      ]
+  async created() {
+      
+      this.topicPath = this.$route.params.type;
+
+      const topicNameData = await axios.post(require('./../host') + '/topic', {
+          topicPath: this.topicPath
+      });
+
+      this.topicName = topicNameData.data.topicName;
+
+      const workListData = await axios.get(require('./../host') +'/work');
+      this.workList = workListData.data;
   },
   methods: {
       goPage(workOwnerId) {

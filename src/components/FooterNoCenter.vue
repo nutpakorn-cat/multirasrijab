@@ -2,19 +2,33 @@
     <div class="footer">
         <div class="row">
             <div class="col-md-4 text-left">
-                <a href="https://facebook.com"><img :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130"></a>
+                <a :href="footerData.facebook"><img :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130"></a>
             </div>
             <div class="col-md-4">
             </div>
             <div class="col-md-4 text-right">
-                <p style="color: rgb(160 160 160);line-height: 142px;margin-right: 53px;">Copyright</p>
+                <p style="color: rgb(160 160 160);line-height: 142px;margin-right: 53px;">{{footerData.copyright}}</p>
             </div>
         </div>
     </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   name: 'FooterNoCenter',
+  data() {
+      return {
+          footerData: {
+            facebook: '',
+            copyright: ''
+          }
+      };
+  },
+  async created() {
+    const data = await axios.get(require('./../host') +'/footer');
+    this.footerData = data.data;
+  }
 }
 </script>
 <style scoped>

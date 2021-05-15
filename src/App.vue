@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="isLoading" :class="{loading: true, 'animate__animated animate__fadeOut': isFade}"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>
-    <router-view></router-view>
+    <router-view class="animate__animated animate__fadeIn"></router-view>
   </div>
 </template>
 

@@ -4,9 +4,9 @@
     <div class="container" style="margin-bottom: 100px;">
       <div class="row" style="margin-top: 50px; margin-bottom: 130px;">
         <div class="col-md-6">
-          <h1 class="header-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{header}}</h1>
+          <h1 class="header-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{aboutusData.header}}</h1>
           <div style="word-break: break-word;">
-            <p class="content-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">{{header2}}</p>
+            <p class="content-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">{{aboutusData.header2}}</p>
           </div>
           <div class="img-margin">
             <img class="l-img-size" :src="require('@/assets/LOGO-BAR/SWU_College_Social_Communication_Innovation_EN_White.png')">
@@ -16,13 +16,13 @@
         </div>
         <div class="col-md-6">
           <div style="word-break: break-word;">
-            <p class="right-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">{{content}}</p>
+            <p class="right-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">{{aboutusData.content}}</p>
           </div>
         </div>
       </div>
       <h1 class="text-center special-font" style="color: white;margin-bottom: 80px;">SPECIAL THANKS</h1>
       <div class="row text-center" style="margin-bottom: -50px;">
-        <div v-for="person in specialThanks" v-bind:key="person.image" class="col-md-3">
+        <div v-for="person in aboutusData.specialThanks" v-bind:key="person.image" class="col-md-3">
           <div :style="{backgroundImage: 'url(' + person.image + ')'}" class="circle"></div>
           <h3 class="name-font" style="color: white;">{{person.name}}</h3>
         </div>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Navbar from './../components/Navbar';
 import FooterNotFix from './../components/FooterNotFix';
 
@@ -47,30 +48,12 @@ export default {
   },
   data() {
     return {
-      header: 'ราศรีจับ',
-      header2: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-      content: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-      specialThanks: [
-        {
-          'image': 'https://thaiconfig.com/wp-content/uploads/2020/11/google-workspace-%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%A3.jpg',
-          'name': 'NAME'
-        },
-        {
-          'image': 'https://thaiconfig.com/wp-content/uploads/2020/11/google-workspace-%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%A3.jpg',
-          'name': 'NAME'
-        },
-        {
-          'image': 'https://thaiconfig.com/wp-content/uploads/2020/11/google-workspace-%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%A3.jpg',
-          'name': 'NAME'
-        },{
-          'image': 'https://thaiconfig.com/wp-content/uploads/2020/11/google-workspace-%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%A3.jpg',
-          'name': 'NAME'
-        }
-      ]
+      aboutusData: {}
     };
   },
-  created() {
-
+  async created() {
+    const data = await axios.get(require('./../host') +'/about-us');
+    this.aboutusData = data.data;
   }
 }
 </script>

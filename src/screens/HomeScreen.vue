@@ -5,7 +5,9 @@
       <div class="row" style="margin-top: 82px; margin-bottom: 100px;">
       <div class="col-md-7">
         <div class="player player-margin player-padding">
-          <iframe :src="homeData.mediaClip" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <video muted="" playsinline="" autoplay="" loop="" controls="" style="width: 100%;">
+			      <source src="https://multirasrijab.s3-ap-southeast-1.amazonaws.com/clip/Multijaab_Showreel.mp4" type="video/mp4">
+			    </video>
         </div>
       </div>
       <div class="col-md-5">
@@ -21,6 +23,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Navbar from './../components/Navbar';
 import FooterNoCenter from './../components/FooterNoCenter';
 
@@ -34,12 +37,9 @@ export default {
       homeData: {},
     };
   },
-  created() {
-    this.homeData = {
-      mediaClip: 'https://www.youtube-nocookie.com/embed/ptb3fZ_hKc8',
-      header: 'ราศรีจับ',
-      content: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-    };
+  async created() {
+    const data = await axios.get(require('./../host') +'/home');
+    this.homeData = data.data;
   },
   components: {
     Navbar,
