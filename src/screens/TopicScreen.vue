@@ -4,11 +4,11 @@
     <div class="container" style="margin-top:50px;">
         <h1 style="font-family: medium; color: white;font-size: 50px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{ topicName }}</h1>
         <div class="row" style="margin-top: 40px;">
-            <div v-for="(work, i) in workList" v-bind:key="work.workName" @click="goPage(work.workId)" class="col-md-6 data" style="margin-bottom: 70px;">
+            <div v-for="work in workList" v-bind:key="work.workName" @click="goPage(work.workOwnerId)" class="col-md-6 data" style="margin-bottom: 70px;">
                 <div class="row">
                     <div class="col-md-6">
                         <div :style="{backgroundImage: 'url(' + work.workImage + ')'}" class="thumbnail">
-                            <div class="block text-center">{{i+1}}</div>
+                            <div class="block text-center">{{work.workId}}</div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -75,7 +75,11 @@ export default {
 
         this.topicName = topicNameData.data.topicName;
 
-        const workListData = await axios.get(require('./../host') +'/work');
+        const workListData = await axios.get(require('./../host') +'/work', {
+          params: {
+            topicId: topicNameData.data.entityId
+          }
+        });
         this.workList = workListData.data;
       }
   }

@@ -16,7 +16,7 @@
                         <br>
                         <br>
                         <br>
-                        <router-link :to="'/work/' + topicPath + '/' + leftId"><h3 style="color: grey;border-bottom: 2px solid grey;">{{leftId}}</h3></router-link>
+                        <router-link :to="'/work/' + topicPath + '/' + leftOwnerId"><h3 style="color: grey;border-bottom: 2px solid grey;">{{leftId}}</h3></router-link>
                     </div>
                     <div class="col-md-4">
                         <br>
@@ -29,7 +29,7 @@
                         <br>
                         <br>
                         <br>
-                        <router-link :to="'/work/' + topicPath + '/' + rightId"><h3 style="color: grey;border-bottom: 2px solid grey;">{{rightId}}</h3></router-link>
+                        <router-link :to="'/work/' + topicPath + '/' + rightOwnerId"><h3 style="color: grey;border-bottom: 2px solid grey;">{{rightId}}</h3></router-link>
                     </div>
                 </div>
             </div>
@@ -44,34 +44,17 @@ import axios from 'axios';
 
 export default {
   name: 'FooterHasItem',
-  props: {
-      leftId: {
-          type: String
-      },
-      rightId: {
-          type: String
-      },
-      topicPath: {
-          type: String
-      }
-  },
+  props: ['topicPath', 'workId', 'leftId', 'rightId', 'leftOwnerId', 'rightOwnerId'],
   data() {
       return {
-          workId: '',
           footerData: {
             facebook: '',
             copyright: ''
           }
       };
   },
-  watch: {
-    $route (to, from) {
-        this.workId = this.$route.params.id;
-    }
-  },
   async created() {
-    this.workId = this.$route.params.id;
-    const data = await axios.get(require('./../host') +'/footer');
+    const data = await axios.get(require('./../host') + '/footer');
     this.footerData = data.data;
   }
 }

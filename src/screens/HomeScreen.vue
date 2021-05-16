@@ -1,12 +1,12 @@
 <template>
   <div>
     <Navbar :isWelcome="false" />
-    <div class="container text-center height-device">
+    <div class="container text-center height-device" v-if="('mediaClip') in homeData">
       <div class="row" style="margin-top: 82px; margin-bottom: 100px;">
       <div class="col-md-7">
         <div class="player player-margin player-padding">
           <video muted="" playsinline="" autoplay="" loop="" controls="" style="width: 100%;">
-			      <source src="https://multirasrijab.s3-ap-southeast-1.amazonaws.com/clip/Multijaab_Showreel.mp4" type="video/mp4">
+			      <source :src="homeData.mediaClip" type="video/mp4">
 			    </video>
         </div>
       </div>

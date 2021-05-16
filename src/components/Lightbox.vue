@@ -51,7 +51,7 @@ import axios from 'axios';
 
 export default {
     name: 'Lightbox',
-    props: ['workId'],
+    props: ['workOwnerId'],
     components: {},
     data() {
         return {
@@ -77,7 +77,7 @@ export default {
     methods: {
         async fetchData() {
             const mediaListData = await axios.post(require('./../host') + '/media', {
-                workId: this.workId
+                workOwnerId: this.workOwnerId
             });
 
             this.mediaList = mediaListData.data;

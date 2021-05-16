@@ -4,7 +4,7 @@
     <div class="container" style="margin-top:40px; margin-bottom: -10px;">
         <div class="row">
             <div class="col-md-7">
-                <Lightbox :key="workId" :workId="workId" />
+                <Lightbox :key="workOwnerId" :workOwnerId="workOwnerId" />
             </div>
             <div class="col-md-5">
                 <h4 style="font-family: medium; color: #909090;font-size: 23px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{topicName}}</h4>
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <FooterHasItem :leftId="work.leftId" :rightId="work.rightId" :topicPath="topicPath" />
+    <FooterHasItem :key="work.workOwnerId" :workId="work.workId" :leftOwnerId="work.leftOwnerId" :rightOwnerId="work.rightOwnerId" :leftId="work.leftId" :rightId="work.rightId" :topicPath="topicPath" />
   </div>
 </template>
 
@@ -55,7 +55,7 @@ export default {
     return {
       topicName: '',
       topicPath: '',
-      workId: '',
+      workOwnerId: '',
       work: {}
     };
   },
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     async fetchData() {
-      this.workId = this.$route.params.id;
+      this.workOwnerId = this.$route.params.id;
 
       this.topicPath = this.$route.params.type;
 
@@ -80,7 +80,7 @@ export default {
       this.topicName = topicNameData.data.topicName;
       
       const workData = await axios.post(require('./../host') + '/work', {
-          workId: this.workId
+          workOwnerId: this.workOwnerId
       });
 
       this.work = workData.data;
