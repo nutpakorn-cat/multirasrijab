@@ -99,6 +99,7 @@ body.aboutus {
   }
   .circle {
     background-size: cover;
+    background-position: center center;
     height: 200px;
     width: 200px;
     
@@ -111,6 +112,7 @@ body.aboutus {
 @media (min-width: 725px) and (max-width: 991px) {
   .circle {
     background-size: cover;
+    background-position: center center;
     height: 160px;
     width: 160px; 
     border-radius: 50%;
@@ -122,6 +124,7 @@ body.aboutus {
 @media (min-width: 622px) and (max-width: 724px) {
   .circle {
     background-size: cover;
+    background-position: center center;
     height: 120px;
     width: 120px;
     border-radius: 50%;
@@ -211,6 +214,7 @@ body.aboutus {
   }
   .circle {
     background-size: cover;
+    background-position: center center;
     height: 80px;
     width: 80px;
     border-radius: 50%;
@@ -246,6 +250,7 @@ body.aboutus {
   }
   .circle {
     background-size: cover;
+    background-position: center center;
     height: 60px;
     width: 60px;
     border-radius: 50%;
