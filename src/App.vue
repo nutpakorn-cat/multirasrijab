@@ -22,20 +22,20 @@ export default {
         this.isFade = false;
         setTimeout(() => {
           this.isLoading = false;
-        }, 2000);
+        }, 2300);
         setTimeout(() => {
           this.isFade = true;
-        }, 1000);
+        }, 1300);
         this.count = true;
       } else {
         this.isLoading = true;
         this.isFade = false;
         setTimeout(() => {
           this.isLoading = false;
-        }, 1400);
+        }, 1600);
         setTimeout(() => {
           this.isFade = true;
-        }, 400);
+        }, 600);
       }
     }
   },
