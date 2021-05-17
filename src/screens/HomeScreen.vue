@@ -1,7 +1,8 @@
 <template>
   <div>
     <Navbar :isWelcome="false" />
-    <div class="container text-center height-device" v-if="('mediaClip') in homeData">
+    <div v-if="!success" class="text-center" style="margin-top: 90px;margin-bottom: 290px;"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+    <div v-if="success" class="container text-center height-device" v-if="('mediaClip') in homeData">
       <div class="row" style="margin-top: 82px; margin-bottom: 100px;">
       <div class="col-md-7">
         <div class="player player-margin player-padding">
@@ -35,11 +36,13 @@ export default {
   data() {
     return {
       homeData: {},
+      success: false
     };
   },
   async created() {
     const data = await axios.get(require('./../host') +'/home');
     this.homeData = data.data;
+    this.success = true;
   },
   components: {
     Navbar,

@@ -1,7 +1,8 @@
 <template>
   <div>
     <Navbar :isWelcome="false" />
-    <div class="container" style="margin-bottom: 100px;">
+    <div v-if="!success" class="text-center" style="margin-top: 90px;margin-bottom: 290px;"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+    <div v-if="success" class="container" style="margin-bottom: 100px;">
       <div class="row" style="margin-top: 50px; margin-bottom: 130px;">
         <div class="col-md-6">
           <h1 class="header-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{aboutusData.header}}</h1>
@@ -48,12 +49,14 @@ export default {
   },
   data() {
     return {
-      aboutusData: {}
+      aboutusData: {},
+      success: false
     };
   },
   async created() {
     const data = await axios.get(require('./../host') +'/about-us');
     this.aboutusData = data.data;
+    this.success = true;
   }
 }
 </script>
