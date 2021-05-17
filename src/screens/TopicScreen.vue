@@ -108,7 +108,7 @@ body.topic {
   margin-right: auto;
 }
 .thumbnail {
-    height: 100%;
+    height: 115px;
     width: 100%;
     background-size: cover;
     background-position: center center;
