@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-6">
           <div style="word-break: break-word;">
-            <p class="right-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">{{aboutusData.content}}</p>
+            <p class="right-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;" v-html="aboutusData.content"></p>
           </div>
         </div>
       </div>
