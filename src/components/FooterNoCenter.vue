@@ -38,10 +38,6 @@ export default {
     left: 0;
     bottom: 0;
     width: 100%;
-    background: rgb(0,0,0);
-    background: linear-gradient(
-0deg
-, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
     text-align: center;
 }
 
