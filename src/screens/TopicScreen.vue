@@ -1,33 +1,35 @@
 <template>
   <div>
     <Navbar :isWelcome="false" />
-    <div v-if="!workList.length" class="text-center" style="margin-top: 90px;margin-bottom: 290px;"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-    <div v-if="workList.length" class="container" style="margin-top:50px;">
-        <h1 style="font-family: medium; color: white;font-size: 50px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{ topicName }}</h1>
-        <div class="row" style="margin-top: 40px;">
-            <div v-for="work in workList" v-bind:key="work.workName" @click="goPage(work.workOwnerId)" class="col-md-6 data col-size" style="margin-bottom: 70px;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div :style="{backgroundImage: 'url(' + work.workImage + ')'}" class="thumbnail">
-                            <div class="block text-center">{{work.workId}}</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class="project-name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
-                        <h4 class="text-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workText}}</h4>
-                        <div class="row" style="margin-top: 15px;">
-                            <div class="col-md-4 text-center">
-                                <div :style="{backgroundImage: 'url(' + work.workOwnerImage + ')'}" class="circle"></div>
-                            </div>
-                            <div class="col-md-8" style="padding-top: 8px;">
-                                <h5 class="name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName.split(' ')[0]}}<br>{{work.workOwnerName.split(' ')[1]}}</h5>
-                                <h5 class="id-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="height-device-small">
+      <div v-if="!workList.length" class="text-center" style="margin-top: 90px;margin-bottom: 290px;"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+      <div v-if="workList.length" class="container" style="margin-top:50px;">
+          <h1 style="font-family: medium; color: white;font-size: 50px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{ topicName }}</h1>
+          <div class="row" style="margin-top: 40px;">
+              <div v-for="work in workList" v-bind:key="work.workName" @click="goPage(work.workOwnerId)" class="col-md-6 data col-size" style="margin-bottom: 70px;">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div :style="{backgroundImage: 'url(' + work.workImage + ')'}" class="thumbnail">
+                              <div class="block text-center">{{work.workId}}</div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <h3 class="project-name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
+                          <h4 class="text-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workText}}</h4>
+                          <div class="row" style="margin-top: 15px;">
+                              <div class="col-md-4 text-center">
+                                  <div :style="{backgroundImage: 'url(' + work.workOwnerImage + ')'}" class="circle"></div>
+                              </div>
+                              <div class="col-md-8" style="padding-top: 8px;">
+                                  <h5 class="name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName.split(' ')[0]}}<br>{{work.workOwnerName.split(' ')[1]}}</h5>
+                                  <h5 class="id-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h5>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
 
     <FooterNotFix />
@@ -108,7 +110,7 @@ body.topic {
   margin-right: auto;
 }
 .thumbnail {
-    height: 115px;
+    height: 132px;
     width: 100%;
     background-size: cover;
     background-position: center center;

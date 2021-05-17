@@ -177,16 +177,4 @@ body.home {
     margin-top: 20px;
   }
 }
-
-@media (max-height: 1000px) {
-  .height-device {
-    margin-top: 0px;
-  }
-}
-
-@media (min-height: 1001px) {
-  .height-device {
-    margin-top: 200px;
-  }
-}
 </style>

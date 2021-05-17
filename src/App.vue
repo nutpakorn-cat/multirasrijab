@@ -47,6 +47,24 @@ export default {
 @import './assets/fonts.css';
 @import './assets/responsive.css';
 
+@media (max-height: 799px) {
+  .height-device {
+    margin-top: 0px;
+  }
+  .height-device-small {
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-height: 800px) {
+  .height-device {
+    margin-top: 200px;
+  }
+  .height-device-small {
+    margin-bottom: 100px;
+  }
+}
+
 .lds-ring {
   display: inline-block;
   position: relative;

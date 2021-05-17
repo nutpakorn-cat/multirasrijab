@@ -12,6 +12,8 @@
           <div class="img-margin">
             <img class="l-img-size" :src="require('@/assets/LOGO-BAR/SWU_College_Social_Communication_Innovation_EN_White.png')">
             &nbsp;
+            <img style="margin-top: -3px;" class="m-img-size" :src="require('@/assets/LOGO-BAR/logo_iamd_white.png')">
+            &nbsp;
             <img class="r-img-size" :src="require('@/assets/LOGO-BAR/logo_multi_white.png')">
           </div>
         </div>
@@ -83,10 +85,13 @@ body.aboutus {
     margin-top: 40px;
   }
   .l-img-size {
-    width: 180px;
+    width: 140px;
+  }
+  .m-img-size {
+    width: 70px;
   }
   .r-img-size {
-    width: 150px;
+    width: 110px;
   }
   .header-font {
     font-size: 100px;
@@ -144,10 +149,13 @@ body.aboutus {
     margin-top: 40px;
   }
   .l-img-size {
-    width: 160px;
+    width: 120px;
+  }
+  .m-img-size {
+    width: 50px;
   }
   .r-img-size {
-    width: 130px;
+    width: 90px;
   }
   .header-font {
     font-size: 80px;
@@ -171,10 +179,13 @@ body.aboutus {
     margin-top: 40px;
   }
   .l-img-size {
-    width: 140px;
+    width: 110px;
+  }
+  .m-img-size {
+    width: 40px;
   }
   .r-img-size {
-    width: 110px;
+    width: 80px;
   }
   .header-font {
     font-size: 80px;
@@ -198,10 +209,13 @@ body.aboutus {
     margin-top: 30px;
   }
   .l-img-size {
-    width: 120px;
+    width: 90px;
+  }
+  .m-img-size {
+    width: 40px;
   }
   .r-img-size {
-    width: 90px;
+    width: 60px;
   }
   .header-font {
     font-size: 50px;
@@ -236,8 +250,11 @@ body.aboutus {
   .l-img-size {
     width: 70px;
   }
+  .m-img-size {
+    width: 30px;
+  }
   .r-img-size {
-    width: 55px;
+    width: 40px;
   }
   .header-font {
     font-size: 40px;
