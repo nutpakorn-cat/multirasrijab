@@ -1,5 +1,5 @@
 <template>
-<div data-v-41458b80="" style="background: linear-gradient(rgb(0, 0, 0) 0%, rgba(255, 255, 255, 0) 100%);">
+<div data-v-41458b80="">
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-font navbar-padding" data-v-41458b80="" style="font-family:medium;background-color:transparent !important;">
         <router-link active-class="" class="navbar-brand" to="/home"><img src="https://multirasrijab.s3-ap-southeast-1.amazonaws.com/300x300.png" style="width:83px;" data-v-41458b80=""></router-link><button class="navbar-toggler navbar-margin" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-v-41458b80=""><span class="navbar-toggler-icon" data-v-41458b80=""></span></button>
         <div class="collapse navbar-collapse" id="navbarNav" data-v-41458b80="" style="padding-left: 30px;padding-right: 30px;">
