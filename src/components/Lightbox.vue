@@ -35,7 +35,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <img :src="selectedImage" width="500" style="margin-left: auto; margin-right: auto; display: block;">
+                                <img class="res-img" width="500" :src="selectedImage" style="margin-left: auto; margin-right: auto; display: block;">
                             </div>
                         </div>
                     </div>
@@ -217,7 +217,15 @@ export default {
     color: white;
 }
 
-@media (min-width: 1200px) {
-    
+@media (min-width: 550px) {
+    .res-img {
+        width: 500px;
+    }
+}
+
+@media (max-width: 549px) {
+    .res-img {
+        width: 300px;
+    }
 }
 </style>
