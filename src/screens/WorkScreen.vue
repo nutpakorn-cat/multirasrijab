@@ -3,22 +3,22 @@
     <Navbar :isWelcome="false" />
     <div class="container" style="margin-top:40px; margin-bottom: -10px;">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-7 col-size">
                 <Lightbox :key="workOwnerId" :workOwnerId="workOwnerId" />
             </div>
-            <div class="col-md-5">
-                <h4 style="font-family: medium; color: #909090;font-size: 23px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{topicName}}</h4>
-                <h3 style="font-family: medium; color: white;font-size: 37px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
+            <div class="col-md-5 col-size">
+                <h4 class="topic-font" style="font-family: medium; color: #909090;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{topicName}}</h4>
+                <h3 class="work-name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
                 <div class="row" style="margin-top: 40px;padding-left: 30px;">
-                    <div class="col-md-3" style="margin-bottom: 18px;">
+                    <div class="col-md-3 text-center" style="margin-bottom: 18px;">
                         <div :style="{backgroundImage: 'url(' + work.workOwnerImage + ')'}" class="circle">
                             <div class="block text-center">{{work.workId}}</div>
                         </div>
                     </div>
                     <div class="col-md-9">
                         <br>
-                        <h3 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName}}</h3>
-                        <h3 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h3>
+                        <h3 class="work-owner-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName}}</h3>
+                        <h3 class="work-owner-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h3>
                     </div>
                 </div>
                 <a :href="work.workOwnerJournal" class="btn btn-theme" style="margin-right: 10px;">Journal</a>
@@ -117,14 +117,6 @@ body.work {
     background-color: rgb(255, 255, 255);
     box-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;
 }
-.circle {
-  height: 80px;
-  width: 80px;
-  background-size: cover;
-  border-radius: 50%;
-  display: inline-block;
-  margin-bottom: 20px;
-}
 .block {
     font-family: 'text';
     position: relative;
@@ -135,5 +127,98 @@ body.work {
     border: 1px solid white;
     color: white;
     padding-top: 2px;
+}
+
+@media (min-width: 1200px) {
+  .topic-font {
+    font-size: 23px;
+  }
+  .work-name-font {
+    font-size: 37px;
+  }
+  .work-owner-font {
+    font-size: 20px;
+  }
+  .circle {
+    height: 80px;
+    width: 80px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .topic-font {
+    font-size: 21px;
+  }
+  .work-name-font {
+    font-size: 35px;
+  }
+  .work-owner-font {
+    font-size: 18px;
+  }
+  .circle {
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .topic-font {
+    font-size: 19px;
+  }
+  .work-name-font {
+    font-size: 33px;
+  }
+  .work-owner-font {
+    font-size: 16px;
+  }
+  .circle {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 767px) {
+  .topic-font {
+    font-size: 19px;
+  }
+  .work-name-font {
+    font-size: 33px;
+  }
+  .work-owner-font {
+    font-size: 16px;
+  }
+  .circle {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .col-size {
+    margin-bottom: 50px;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 </style>

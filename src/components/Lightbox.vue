@@ -191,6 +191,7 @@ export default {
     width: 80%;
     height: 300px;
     background-size: cover;
+    background-position: center center;
     margin-bottom: 50px;
 }
 .selected {
@@ -198,10 +199,15 @@ export default {
 }
 .thumbnail {
     background-size: cover;
+    background-position: center center;
     cursor: pointer;
     height: 100px;
     width: 100%;
     background-color: black;
     color: white;
+}
+
+@media (min-width: 1200px) {
+    
 }
 </style>

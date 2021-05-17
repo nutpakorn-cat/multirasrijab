@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <div class="row" style="overflow: hidden;">
+        <div class="row res" style="overflow: hidden;">
             <div class="col-md-4 text-left">
                 <a :href="footerDatafacebook">
                     <img :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130" style="
@@ -73,5 +73,17 @@ a:hover {
 0deg
 , rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
     text-align: center;
+}
+@media (min-width: 500px) {
+    .res {
+        
+    }
+}
+
+@media (max-width: 499px) {
+    .res {
+        position: relative;
+        top: -10px;
+    }
 }
 </style>

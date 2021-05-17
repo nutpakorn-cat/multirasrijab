@@ -4,7 +4,7 @@
     <div class="container" style="margin-top:50px;">
         <h1 style="font-family: medium; color: white;font-size: 50px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{ topicName }}</h1>
         <div class="row" style="margin-top: 40px;">
-            <div v-for="work in workList" v-bind:key="work.workName" @click="goPage(work.workOwnerId)" class="col-md-6 data" style="margin-bottom: 70px;">
+            <div v-for="work in workList" v-bind:key="work.workName" @click="goPage(work.workOwnerId)" class="col-md-6 data col-size" style="margin-bottom: 70px;">
                 <div class="row">
                     <div class="col-md-6">
                         <div :style="{backgroundImage: 'url(' + work.workImage + ')'}" class="thumbnail">
@@ -12,15 +12,15 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h3 style="font-family: medium; color: white;font-size: 25px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
-                        <h4 style="font-family: medium; color: white;font-size: 20px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workText}}</h4>
+                        <h3 class="project-name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
+                        <h4 class="text-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workText}}</h4>
                         <div class="row" style="margin-top: 15px;">
-                            <div class="col-md-6">
+                            <div class="col-md-4 text-center">
                                 <div :style="{backgroundImage: 'url(' + work.workOwnerImage + ')'}" class="circle"></div>
                             </div>
-                            <div class="col-md-6" style="padding-top: 8px;">
-                                <h5 style="font-family: medium; color: white;font-size: 15px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName}}</h5>
-                                <h5 style="font-family: medium; color: white;font-size: 15px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h5>
+                            <div class="col-md-8" style="padding-top: 8px;">
+                                <h5 class="name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName.split(' ')[0]}}<br>{{work.workOwnerName.split(' ')[1]}}</h5>
+                                <h5 class="id-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h5>
                             </div>
                         </div>
                     </div>
@@ -110,6 +110,7 @@ body.topic {
     height: 100%;
     width: 100%;
     background-size: cover;
+    background-position: center center;
 }
 .block {
     font-family: 'text';
@@ -122,15 +123,148 @@ body.topic {
     color: white;
     padding-top: 2px;
 }
-.circle {
-  height: 80px;
-  width: 80px;
-  background-size: cover;
-  border-radius: 50%;
-  display: inline-block;
-  margin-bottom: 20px;
-}
+
 .data {
     cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .project-name-font {
+    font-size: 20px;
+  }
+  .text-font {
+    font-size: 18px;
+  }
+  .name-font {
+    font-size: 14px;
+  }
+  .id-font {
+    font-size: 12px;
+  }
+  .circle {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  .col-size {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 792px) and (max-width: 991px) {
+  .project-name-font {
+    font-size: 17px;
+  }
+  .text-font {
+    font-size: 15px;
+  }
+  .name-font {
+    font-size: 11px;
+  }
+  .id-font {
+    font-size: 9px;
+  }
+  .circle {
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 7px;
+  }
+  .col-size {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 722px) and (max-width: 791px) {
+  .project-name-font {
+    font-size: 14px;
+  }
+  .text-font {
+    font-size: 13px;
+  }
+  .name-font {
+    font-size: 9px;
+  }
+  .id-font {
+    font-size: 7px;
+  }
+  .circle {
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 7px;
+  }
+  .col-size {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 419px) and (max-width: 721px) {
+  .project-name-font {
+    font-size: 16px;
+  }
+  .text-font {
+    font-size: 15px;
+  }
+  .name-font {
+    font-size: 11px;
+  }
+  .id-font {
+    font-size: 9px;
+  }
+  .circle {
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 7px;
+  }
+  .col-size {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 418px) {
+  .project-name-font {
+    font-size: 14px;
+  }
+  .text-font {
+    font-size: 13px;
+  }
+  .name-font {
+    font-size: 9px;
+  }
+  .id-font {
+    font-size: 7px;
+  }
+  .circle {
+    height: 25px;
+    width: 25px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  .col-size {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 </style>
