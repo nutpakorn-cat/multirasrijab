@@ -154,14 +154,24 @@ export default {
 
 <style scoped>
 .player {
+  position: relative;
+  width: 80%;
+  height: 315px;
   overflow: hidden;
   z-index: 1;
-  height: 300px;
-  width: 545px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
+
+.player iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .modal-content {
     background-color: transparent;
     border: 0px solid transparent;

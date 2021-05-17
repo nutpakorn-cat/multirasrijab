@@ -14,14 +14,14 @@
                           </div>
                       </div>
                       <div class="col-md-6">
-                          <h3 class="project-name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
+                          <h3 class="project-name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;" v-html="work.workName.replace('(', '<br>(')"></h3>
                           <h4 class="text-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workText}}</h4>
                           <div class="row" style="margin-top: 15px;">
                               <div class="col-md-4 text-center">
                                   <div :style="{backgroundImage: 'url(' + work.workOwnerImage + ')'}" class="circle"></div>
                               </div>
                               <div class="col-md-8" style="padding-top: 8px;">
-                                  <h5 class="name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName.split(' ')[0]}}<br>{{work.workOwnerName.split(' ')[1]}}</h5>
+                                  <h5 class="name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName.split(' ')[0]}}<br>{{work.workOwnerName.split(' ')[1]}}<abc v-if="work.workOwnerName.split(' ').length > 2"><br>{{work.workOwnerName.split(' ')[2]}}</abc></h5>
                                   <h5 class="id-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h5>
                               </div>
                           </div>
