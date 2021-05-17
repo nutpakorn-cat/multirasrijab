@@ -1,7 +1,8 @@
 <template>
   <div>
     <Navbar :isWelcome="false" />
-    <div class="container" style="margin-top:40px; margin-bottom: -10px;">
+    <div v-if="!(('entityId') in work)" class="text-center" style="margin-top: 90px;margin-bottom: 290px;"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+    <div v-if="(('entityId') in work)" class="container" style="margin-top:40px; margin-bottom: -10px;">
         <div class="row">
             <div class="col-md-7 col-size">
                 <Lightbox :key="workOwnerId" :workOwnerId="workOwnerId" />

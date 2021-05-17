@@ -1,7 +1,8 @@
 <template>
   <div>
     <Navbar :isWelcome="false" />
-    <div class="container" style="margin-top:50px;">
+    <div v-if="!workList.length" class="text-center" style="margin-top: 90px;margin-bottom: 290px;"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+    <div v-if="workList.length" class="container" style="margin-top:50px;">
         <h1 style="font-family: medium; color: white;font-size: 50px;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{ topicName }}</h1>
         <div class="row" style="margin-top: 40px;">
             <div v-for="work in workList" v-bind:key="work.workName" @click="goPage(work.workOwnerId)" class="col-md-6 data col-size" style="margin-bottom: 70px;">
