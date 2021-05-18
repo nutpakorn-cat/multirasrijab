@@ -27,7 +27,7 @@
       <div class="row text-center" style="margin-bottom: -50px;">
         <div v-for="person in aboutusData.specialThanks" v-bind:key="person.image" class="col-md-3">
           <div :style="{backgroundImage: 'url(' + person.image + ')'}" class="circle"></div>
-          <h3 class="name-font" style="color: white;">{{person.personName}}</h3>
+          <h3 class="name-font" style="color: white;" v-html="person.personName.replace('(', '<br>(')"></h3>
         </div>
       </div>
     </div>
