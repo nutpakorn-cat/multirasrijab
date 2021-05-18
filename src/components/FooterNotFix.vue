@@ -3,7 +3,7 @@
         <div class="row res" style="overflow: hidden;">
             <div class="col-md-4 text-left">
                 <a :href="footerData.facebook">
-                    <img :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130" style="
+                    <img class="facebook-position" :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130" style="
                         top: 58px;
                         position: relative;
                     ">

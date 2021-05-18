@@ -2,6 +2,7 @@
   <div>
     <div v-if="isLoading" :class="{loading: true, 'animate__animated animate__fadeOut': isFade}"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>
     <router-view class="animate__animated animate__fadeIn"></router-view>
+    <div @click="scrollTop" v-if="isShowTop" :style="{backgroundImage: 'url(' + require('@/assets/PNG/Topic_Bottom_Button.png') + ')'}" :class="{'scroll-to-top': true, 'animate__animated animate__fadeIn': isShowTop}"></div>
   </div>
 </template>
 
@@ -12,7 +13,8 @@ export default {
     return {
       count: false,
       isFade: false,
-      isLoading: true
+      isLoading: true,
+      isShowTop: false,
     };
   },
   watch: {
@@ -39,6 +41,30 @@ export default {
       }
     }
   },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll)
+  },
+  methods: {
+    onScroll(e) {
+      let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
+
+      if (bottomOfWindow) {
+        this.isShowTop = true;
+      } else {
+        this.isShowTop = false;
+      }
+    },
+    scrollTop() {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
+  }
 }
 </script>
 
@@ -46,6 +72,17 @@ export default {
 @import './assets/bootstrap.min.css';
 @import './assets/fonts.css';
 @import './assets/responsive.css';
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 0;
+    left: 48%;
+    width: 60px;
+    height: 60px;
+    background-position: center center;
+    background-size: contain;
+    cursor: pointer;
+}
 
 @media (max-height: 799px) {
   .height-device {

@@ -110,7 +110,7 @@ body.topic {
   margin-right: auto;
 }
 .thumbnail {
-    height: 132px;
+    height: 169px;
     width: 100%;
     background-size: cover;
     background-position: center center;
@@ -136,7 +136,7 @@ body.topic {
     font-size: 20px;
   }
   .text-font {
-    font-size: 18px;
+    font-size: 15px;
   }
   .name-font {
     font-size: 14px;
@@ -164,7 +164,7 @@ body.topic {
     font-size: 17px;
   }
   .text-font {
-    font-size: 15px;
+    font-size: 12px;
   }
   .name-font {
     font-size: 11px;
@@ -173,13 +173,13 @@ body.topic {
     font-size: 9px;
   }
   .circle {
-    height: 40px;
-    width: 40px;
+    height: 43px;
+    width: 43px;
     background-size: cover;
     background-position: center center;
     border-radius: 50%;
     display: inline-block;
-    margin-top: 7px;
+    margin-top: 8px;
   }
   .col-size {
     flex: 0 0 50%;
@@ -201,13 +201,13 @@ body.topic {
     font-size: 7px;
   }
   .circle {
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     background-size: cover;
     background-position: center center;
     border-radius: 50%;
     display: inline-block;
-    margin-top: 7px;
+    margin-top: 9px;
   }
   .col-size {
     flex: 0 0 50%;
@@ -229,8 +229,8 @@ body.topic {
     font-size: 9px;
   }
   .circle {
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
     background-size: cover;
     background-position: center center;
     border-radius: 50%;
@@ -257,13 +257,13 @@ body.topic {
     font-size: 7px;
   }
   .circle {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     background-size: cover;
     background-position: center center;
     border-radius: 50%;
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 13px;
   }
   .col-size {
     flex: 0 0 100%;

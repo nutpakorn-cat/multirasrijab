@@ -100,7 +100,7 @@ body.aboutus {
     font-size: 24px;
   }
   .right-font {
-    font-size: 30px;
+    font-size: 20px;
   }
   .circle {
     background-size: cover;
@@ -164,7 +164,7 @@ body.aboutus {
     font-size: 18px;
   }
   .right-font {
-    font-size: 27px;
+    font-size: 18px;
   }
 }
 
@@ -194,7 +194,7 @@ body.aboutus {
     font-size: 18px;
   }
   .right-font {
-    font-size: 27px;
+    font-size: 16px;
   }
 }
 
@@ -224,7 +224,7 @@ body.aboutus {
     font-size: 16px;
   }
   .right-font {
-    font-size: 20px;
+    font-size: 15px;
   }
   .circle {
     background-size: cover;
@@ -263,7 +263,7 @@ body.aboutus {
     font-size: 16px;
   }
   .right-font {
-    font-size: 20px;
+    font-size: 14px;
   }
   .circle {
     background-size: cover;
