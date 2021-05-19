@@ -237,7 +237,7 @@ body.aboutus {
   }
 }
 
-@media (max-width: 541px) {
+@media (min-width: 418px) and (max-width: 541px) {
   .name-font {
     font-size: 10px;
   }
@@ -252,6 +252,45 @@ body.aboutus {
   }
   .m-img-size {
     width: 30px;
+  }
+  .r-img-size {
+    width: 40px;
+  }
+  .header-font {
+    font-size: 40px;
+  }
+  .content-font {
+    font-size: 16px;
+  }
+  .right-font {
+    font-size: 14px;
+  }
+  .circle {
+    background-size: cover;
+    background-position: center center;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 417px) {
+  .name-font {
+    font-size: 10px;
+  }
+  .special-font {
+    font-size: 30px;
+  }
+  .img-margin {
+    margin-top: 22px;
+  }
+  .l-img-size {
+    width: 50px;
+  }
+  .m-img-size {
+    width: 25px;
   }
   .r-img-size {
     width: 40px;
