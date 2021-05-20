@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <div style="footer-color"></div>
+        <div class="footer-color"></div>
         <div class="row res" style="overflow: hidden;">
             <div class="col-md-4 text-left">
                 <a :href="footerData.facebook">
