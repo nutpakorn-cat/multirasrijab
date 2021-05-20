@@ -1,12 +1,6 @@
 <template>
     <div class="footer">
-        <div style="
-            width: 100%;
-            height: 85px;
-            position: relative;
-            background-color: white;
-            top: 176px;
-        "></div>
+        <div style="footer-color"></div>
         <div class="row res" style="overflow: hidden;">
             <div class="col-md-4 text-left">
                 <a :href="footerData.facebook">
@@ -56,8 +50,12 @@ export default {
 }
 
 @media (min-width: 1018px) {
-    .res {
-
+    .footer-color {
+        width: 100%;
+        height: 85px;
+        position: relative;
+        background-color: white;
+        top: 176px;
     }
 }
 
@@ -65,6 +63,13 @@ export default {
     .res {
         position: relative;
         top: -10px;
+    }
+    .footer-color {
+        width: 100%;
+        height: 85px;
+        position: relative;
+        background-color: white;
+        top: 164px;
     }
 }
 </style>
