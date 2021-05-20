@@ -5,7 +5,7 @@
             height: 85px;
             position: relative;
             background-color: white;
-            top: 160px;
+            top: 176px;
         "></div>
         <div class="row res" style="overflow: hidden;">
             <div class="col-md-4 text-left">
