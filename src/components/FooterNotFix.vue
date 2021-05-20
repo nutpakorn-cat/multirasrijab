@@ -1,5 +1,12 @@
 <template>
     <div class="footer">
+        <div style="
+            width: 100%;
+            height: 85px;
+            position: relative;
+            background-color: white;
+            top: 160px;
+        "></div>
         <div class="row res" style="overflow: hidden;">
             <div class="col-md-4 text-left">
                 <a :href="footerData.facebook">
@@ -13,7 +20,7 @@
                 
             </div>
             <div class="col-md-4 text-right">
-                <p class="line" data-v-fb3d7926="" style="color: rgb(160, 160, 160);line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
+                <p class="line" data-v-fb3d7926="" style="color: black;line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
             </div>
         </div>
     </div>
@@ -44,6 +51,8 @@ export default {
     bottom: 0;
     width: 100%;
     text-align: center;
+    overflow: hidden;
+    margin-top: -103px;
 }
 
 @media (min-width: 1018px) {

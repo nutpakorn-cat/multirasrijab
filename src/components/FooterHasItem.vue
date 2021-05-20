@@ -1,5 +1,12 @@
 <template>
     <div class="footer">
+        <div style="
+            width: 100%;
+            height: 100px;
+            position: relative;
+            background-color: white;
+            top: 160px;
+        "></div>
         <div class="row res" style="overflow: hidden;">
             <div class="col-md-4 text-left">
                 <a :href="footerData.facebook">
@@ -22,7 +29,7 @@
                         <br>
                         <br>
                         <br>
-                        <h3 style="color: white;border-bottom: 2px solid white;">{{workId}}</h3>
+                        <h3 style="color: black;border-bottom: 2px solid white;">{{workId}}</h3>
                     </div>
                     <div class="col-md-4" style="cursor: pointer;">
                         <br>
@@ -34,7 +41,7 @@
                 </div>
             </div>
             <div class="col-md-4 text-right">
-                <p data-v-fb3d7926="" style="color: rgb(160, 160, 160);line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
+                <p data-v-fb3d7926="" style="color: black;line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
             </div>
         </div>
     </div>
@@ -69,6 +76,8 @@ a:hover {
     bottom: 0;
     width: 100%;
     text-align: center;
+    overflow: hidden;
+    margin-top: -103px;
 }
 @media (min-width: 500px) {
     .res {

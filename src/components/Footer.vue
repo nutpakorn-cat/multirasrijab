@@ -1,5 +1,6 @@
 <template>
     <div class="footer">
+        <div data-v-32a80de1="" class="" style="width: 100%;height: 100px;position: fixed;background-color: white;bottom: -32px;"></div>
         <div class="row">
             <div class="col-md-4 text-left">
                 <a :href="footerData.facebook"><img :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130"></a>
@@ -10,7 +11,7 @@
                 </router-link>
             </div>
             <div class="col-md-4 text-right">
-                <p style="color: rgb(160 160 160);line-height: 142px;margin-right: 53px;">{{footerData.copyright}}</p>
+                <p style="color: black;line-height: 142px;margin-right: 53px;">{{footerData.copyright}}</p>
             </div>
         </div>
     </div>
@@ -47,24 +48,28 @@ export default {
 @media (min-width: 768px) {
     .footer-image {
         height: 90px;width: 200px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -113px;
+        margin-top: -53px;
     }
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
     .footer-image {
         height: 90px;width: 133px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -70px;
+        margin-top: -42px;
     }
 }
 
 @media (min-width: 377px) and (max-width: 479px) {
     .footer-image {
         height: 90px;width: 100px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -50px;
+        margin-top: -32px;
     }
 }
 
 @media (max-width: 376px) {
     .footer-image {
         height: 90px;width: 90px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -40px;
+        margin-top: -30px;
     }
 }
 </style>
