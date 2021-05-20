@@ -59,10 +59,33 @@ export default {
   },
   watch: {
     $route (to, from) {
-        this.fetchData();
+      document.querySelector('body').style.backgroundImage = '';
+      if (!this.$route.path.includes('work')) {
+        if (this.$route.path.includes('animation'))
+          document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Animation.jpg")';
+        if (this.$route.path.includes('installation'))
+          document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Installation.jpg")';
+        if (this.$route.path.includes('corporate-and-brand-identity'))
+          document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_CI.jpg")';
+        if (this.$route.path.includes('campaigns'))
+          document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Campaign.jpg")';
+        if (this.$route.path.includes('interactive'))
+          document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Interactive_Medoa.jpg")';
+      }
+      this.fetchData();
     }
   },
   created() {
+    if (this.$route.path.includes('animation'))
+      document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Animation.jpg")';
+    if (this.$route.path.includes('installation'))
+      document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Installation.jpg")';
+    if (this.$route.path.includes('corporate-and-brand-identity'))
+      document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_CI.jpg")';
+    if (this.$route.path.includes('campaigns'))
+      document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Campaign.jpg")';
+    if (this.$route.path.includes('interactive'))
+      document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Interactive_Medoa.jpg")';
     this.fetchData();
   },
   methods: {
@@ -91,11 +114,13 @@ export default {
 
 <style>
 body.topic { 
-  background: url('https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Animation.jpg') no-repeat center center fixed; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
 }
 </style>
 

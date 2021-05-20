@@ -217,15 +217,48 @@ export default {
     color: white;
 }
 
-@media (min-width: 550px) {
+@media (min-width: 1100px) {
+    .res-img {
+        width: 850px;
+    }
+}
+
+@media (min-width: 866px) and (max-width: 1099px) {
+    .res-img {
+        width: 820px;
+    }
+}
+
+@media (min-width: 735px) and (max-width: 865px) {
+    .res-img {
+        width: 700px;
+    }
+}
+
+@media (min-width: 635px) and (max-width: 734px) {
+    .res-img {
+        width: 600px;
+    }
+}
+
+@media (min-width: 535px) and (max-width: 634px) {
     .res-img {
         width: 500px;
     }
 }
-
-@media (max-width: 549px) {
+@media (min-width: 435px) and (max-width: 534px) {
+    .res-img {
+        width: 400px;
+    }
+}
+@media (min-width: 335px) and (max-width: 434px) {
     .res-img {
         width: 300px;
+    }
+}
+@media (max-width: 334px) {
+    .res-img {
+        width: 200px;
     }
 }
 </style>
