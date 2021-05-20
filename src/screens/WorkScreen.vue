@@ -165,8 +165,8 @@ body.work {
     font-size: 18px;
   }
   .circle {
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
     background-size: cover;
     background-position: center center;
     border-radius: 50%;
@@ -187,18 +187,18 @@ body.work {
     font-size: 16px;
   }
   .circle {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     background-size: cover;
     background-position: center center;
     border-radius: 50%;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 17px;
     margin-bottom: 20px;
   }
 }
 
-@media (min-width: 200px) and (max-width: 767px) {
+@media (min-width: 456px) and (max-width: 767px) {
   .topic-font {
     font-size: 19px;
   }
@@ -209,14 +209,49 @@ body.work {
     font-size: 16px;
   }
   .circle {
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 70px;
     background-size: cover;
     background-position: center center;
     border-radius: 50%;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 13px;
     margin-bottom: 20px;
+    /* margin-left: auto; */
+    position: relative;
+    left: 12px;
+    /* margin-right: auto; */
+  }
+  .col-size {
+    margin-bottom: 50px;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 455px) {
+  .topic-font {
+    font-size: 19px;
+  }
+  .work-name-font {
+    font-size: 33px;
+  }
+  .work-owner-font {
+    font-size: 16px;
+  }
+  .circle {
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 13px;
+    margin-bottom: 20px;
+    /* margin-left: auto; */
+    position: relative;
+    left: 12px;
+    /* margin-right: auto; */
   }
   .col-size {
     margin-bottom: 50px;
