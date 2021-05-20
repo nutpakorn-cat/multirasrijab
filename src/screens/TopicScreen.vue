@@ -170,13 +170,13 @@ body.topic {
     font-size: 12px;
   }
   .circle {
-    height: 50px;
-    width: 50px;
-    background-size: cover;
-    background-position: center center;
-    border-radius: 50%;
-    display: inline-block;
-    margin-top: 10px;
+      height: 55px;
+      width: 55px;
+      background-size: cover;
+      background-position: center center;
+      border-radius: 50%;
+      display: inline-block;
+      margin-top: 10px;
   }
   .col-size {
     flex: 0 0 50%;
@@ -198,14 +198,16 @@ body.topic {
     font-size: 9px;
   }
   .circle {
-    height: 43px;
-    width: 43px;
+    height: 54px;
+    width: 54px;
     background-size: cover;
     background-position: center center;
     border-radius: 50%;
+    left: -12px;
+    position: relative;
     display: inline-block;
-    margin-top: 8px;
-  }
+    margin-top: 5px;
+}
   .col-size {
     flex: 0 0 50%;
     max-width: 50%;
@@ -226,17 +228,71 @@ body.topic {
     font-size: 7px;
   }
   .circle {
-    height: 35px;
-    width: 35px;
+    height: 49px;
+    width: 49px;
     background-size: cover;
     background-position: center center;
     border-radius: 50%;
     display: inline-block;
-    margin-top: 9px;
+    left: -17px;
+    position: relative;
+    margin-top: 5px;
   }
   .col-size {
     flex: 0 0 50%;
     max-width: 50%;
+  }
+}
+
+@media (min-width: 547px) and (max-width: 721px) {
+  .circle {
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 2px;
+  }
+}
+
+@media (min-width: 479px) and (max-width: 546px) {
+  .circle {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 5px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 478px) {
+  .circle {
+    height: 47px;
+    width: 47px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 7px;
+    left: -10px;
+    position: relative;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 399px) {
+  .circle {
+    height: 42px;
+    width: 42px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 8px;
+    left: -10px;
+    position: relative;
   }
 }
 
@@ -252,15 +308,6 @@ body.topic {
   }
   .id-font {
     font-size: 9px;
-  }
-  .circle {
-    height: 45px;
-    width: 45px;
-    background-size: cover;
-    background-position: center center;
-    border-radius: 50%;
-    display: inline-block;
-    margin-top: 7px;
   }
   .col-size {
     flex: 0 0 100%;
@@ -280,15 +327,6 @@ body.topic {
   }
   .id-font {
     font-size: 7px;
-  }
-  .circle {
-    height: 30px;
-    width: 30px;
-    background-size: cover;
-    background-position: center center;
-    border-radius: 50%;
-    display: inline-block;
-    margin-top: 13px;
   }
   .col-size {
     flex: 0 0 100%;
