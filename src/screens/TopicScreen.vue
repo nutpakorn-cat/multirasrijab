@@ -14,7 +14,7 @@
                           </div>
                       </div>
                       <div class="col-md-6">
-                          <h3 class="project-name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;" v-html="work.workName.replace('(', '<br>(')"></h3>
+                          <h3 class="project-name-font" style="font-family: bold; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;" v-html="work.workName.replace('(', '<br>(')"></h3>
                           <h4 class="text-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workText}}</h4>
                           <div class="row" style="margin-top: 15px;">
                               <div class="col-md-4 text-center">

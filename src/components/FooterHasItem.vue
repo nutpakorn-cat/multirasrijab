@@ -29,7 +29,7 @@
                         <br>
                         <br>
                         <br>
-                        <h3 style="color: black;border-bottom: 2px solid white;">{{workId}}</h3>
+                        <h3 style="color: black;border-bottom: 2px solid white;padding-left: 1.5px;">{{workId}}</h3>
                     </div>
                     <div class="col-md-4" style="cursor: pointer;">
                         <br>
