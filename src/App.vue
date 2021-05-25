@@ -2,7 +2,8 @@
   <div>
     <div v-if="isLoading" :class="{loading: true, 'animate__animated animate__fadeOut': isFade}"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>
     <router-view class="animate__animated animate__fadeIn"></router-view>
-    <div @click="scrollTop" v-if="isShowTop" :style="{backgroundImage: 'url(' + require('@/assets/PNG/Topic_Bottom_Button.png') + ')'}" :class="{'scroll-to-top': true, 'animate__animated animate__fadeIn': isShowTop}"></div>
+    <div @click="scrollTop" v-if="isShowTop && this.$route.path.includes('work')" :style="{backgroundImage: 'url(' + require('@/assets/PNG/Topic_Bottom_Button.png') + ')'}" :class="{'scroll-to-top-work': true, 'animate__animated animate__fadeIn': isShowTop}"></div>
+    <div @click="scrollTop" v-if="isShowTop && !this.$route.path.includes('work')" :style="{backgroundImage: 'url(' + require('@/assets/PNG/Topic_Bottom_Button.png') + ')'}" :class="{'scroll-to-top': true, 'animate__animated animate__fadeIn': isShowTop}"></div>
   </div>
 </template>
 
@@ -76,6 +77,19 @@ export default {
 .scroll-to-top {
     position: fixed;
     bottom: 100px;
+    left: 0;
+    right: 0;
+    width: 60px;
+    margin: 1px auto;
+    height: 60px;
+    background-position: center center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.scroll-to-top-work {
+    position: fixed;
+    bottom: 39px;
     left: 0;
     right: 0;
     width: 60px;
