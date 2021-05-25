@@ -75,7 +75,7 @@ export default {
 
 .scroll-to-top {
     position: fixed;
-    bottom: 64px;
+    bottom: 100px;
     left: 0;
     right: 0;
     width: 60px;
