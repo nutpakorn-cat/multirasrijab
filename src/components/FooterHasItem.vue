@@ -6,6 +6,7 @@
     margin-left: auto;
     margin-right: auto;
     top: -45px;
+    z-index: 9998;
     position: relative;
     margin-bottom: -146px;">
             <div class="col-md-4" style="cursor: pointer;">
