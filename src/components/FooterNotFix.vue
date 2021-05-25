@@ -2,7 +2,7 @@
     <div class="footer">
         <div class="footer-color"></div>
         <div class="row res" style="overflow: hidden;">
-            <div class="col-md-4 text-left">
+            <div class="col-md-2 text-left">
                 <a :href="footerData.facebook">
                     <img class="facebook-position" :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130" style="
                         top: 58px;
@@ -10,11 +10,8 @@
                     ">
                 </a>
             </div>
-            <div class="col-md-4">
-                
-            </div>
-            <div class="col-md-4 text-right">
-                <p class="line" data-v-fb3d7926="" style="color: black;line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
+            <div class="col-md-10 text-right">
+                <p class="line text-footer" data-v-fb3d7926="" style="color: black;line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
             </div>
         </div>
     </div>

@@ -1,17 +1,15 @@
 <template>
     <div class="footer">
         <div data-v-32a80de1="" class="" style="width: 100%;height: 100px;position: fixed;background-color: white;bottom: -47px;"></div>
+        <router-link to="/home">
+            <div class="footer-image" :style="{backgroundImage: 'url(' + require('@/assets/PNG/Welcome_Let_sGoButton.png') + ')'}"></div>
+        </router-link>
         <div class="row">
-            <div class="col-md-4 text-left" style="position: relative;top: 6px;">
+            <div class="col-md-2 text-left" style="position: relative;top: -31px;">
                 <a :href="footerData.facebook"><img :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130"></a>
             </div>
-            <div class="col-md-4">
-                <router-link to="/home">
-                    <div class="footer-image" :style="{backgroundImage: 'url(' + require('@/assets/PNG/Welcome_Let_sGoButton.png') + ')'}"></div>
-                </router-link>
-            </div>
-            <div class="col-md-4 text-right" style="position: relative;top: 6px;">
-                <p style="color: black;line-height: 142px;margin-right: 53px;">{{footerData.copyright}}</p>
+            <div class="col-md-10 text-right" style="position: relative;top: -31px;">
+                <p class="text-footer" style="color: black;line-height: 142px;margin-right: 53px;">{{footerData.copyright}}</p>
             </div>
         </div>
     </div>
@@ -62,6 +60,7 @@ export default {
     .footer-image {
         height: 90px;width: 133px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -70px;
         margin-top: -42px;
+        margin-bottom: -11px;
     }
 }
 
@@ -69,6 +68,7 @@ export default {
     .footer-image {
         height: 90px;width: 100px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -50px;
         margin-top: -32px;
+        margin-bottom: -20px;
     }
 }
 
@@ -76,6 +76,7 @@ export default {
     .footer-image {
         height: 90px;width: 90px;margin-left: auto;margin-right: auto;background-size: 153%;background-position-x: center;background-position-y: -40px;
         margin-top: -30px;
+        margin-bottom: -23px;
     }
 }
 </style>

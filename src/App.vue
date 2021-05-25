@@ -227,5 +227,30 @@ body {
    -moz-user-select: none;
    -ms-user-select: none;
 }
+
+@media (min-width: 999px) {
+  .text-footer {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 625px) and (max-width: 998px) {
+  .text-footer {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 440px) and (max-width: 624px) {
+  .text-footer {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 439px) {
+  .text-footer {
+    font-size: 5px;
+  }
+}
+
 </style>
 

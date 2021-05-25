@@ -1,14 +1,39 @@
 <template>
     <div class="footer">
-        <div style="
-            width: 100%;
-            height: 100px;
-            position: relative;
-            background-color: white;
-            top: 160px;
-        "></div>
-        <div class="row res" style="overflow: hidden;">
-            <div class="col-md-4 text-left">
+        <div data-v-86d5249c="" style="width: 100%;height: 150px;position: relative;background-color: white;top: 160px;"></div>
+
+        <div class="row" style="width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    top: -45px;
+    position: relative;
+    margin-bottom: -146px;">
+            <div class="col-md-4" style="cursor: pointer;">
+                <br>
+                <br>
+                <br>
+                <br>
+                <router-link :to="'/work/' + topicPath + '/' + leftOwnerId"><h3 style="color: grey;border-bottom: 2px solid grey;">{{leftId}}</h3></router-link>
+            </div>
+            <div class="col-md-4">
+                <br>
+                <br>
+                <br>
+                <h3 style="color: black;border-bottom: 2px solid white;padding-left: 1.5px;">{{workId}}</h3>
+            </div>
+            <div class="col-md-4" style="cursor: pointer;">
+                <br>
+                <br>
+                <br>
+                <br>
+                <router-link :to="'/work/' + topicPath + '/' + rightOwnerId"><h3 style="color: grey;border-bottom: 2px solid grey;">{{rightId}}</h3></router-link>
+            </div>
+        </div>
+
+        <div class="row res" style="overflow: hidden;
+    top: -2px;
+    position: relative;">
+            <div class="col-md-2 text-left">
                 <a :href="footerData.facebook">
                     <img :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130" style="
                         top: 58px;
@@ -16,32 +41,8 @@
                     ">
                 </a>
             </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-4" style="cursor: pointer;">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <router-link :to="'/work/' + topicPath + '/' + leftOwnerId"><h3 style="color: grey;border-bottom: 2px solid grey;">{{leftId}}</h3></router-link>
-                    </div>
-                    <div class="col-md-4">
-                        <br>
-                        <br>
-                        <br>
-                        <h3 style="color: black;border-bottom: 2px solid white;padding-left: 1.5px;">{{workId}}</h3>
-                    </div>
-                    <div class="col-md-4" style="cursor: pointer;">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <router-link :to="'/work/' + topicPath + '/' + rightOwnerId"><h3 style="color: grey;border-bottom: 2px solid grey;">{{rightId}}</h3></router-link>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-right">
-                <p data-v-fb3d7926="" style="color: black;line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
+            <div class="col-md-10 text-right">
+                <p class="text-footer" style="color: black;line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
             </div>
         </div>
     </div>
