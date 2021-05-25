@@ -75,7 +75,7 @@ export default {
 
 .scroll-to-top {
     position: fixed;
-    bottom: 29px;
+    bottom: 64px;
     left: 0;
     right: 0;
     width: 60px;
@@ -109,6 +109,7 @@ export default {
   position: relative;
   width: 80px;
   height: 80px;
+  margin-bottom: 2000px;
 }
 .lds-ring div {
   box-sizing: border-box;
@@ -147,7 +148,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 0, 0); 
+  background-color: rgb(0, 0, 0);
 }
 
 .lds-ellipsis {
