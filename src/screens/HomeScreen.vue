@@ -5,10 +5,7 @@
     <div v-if="success" class="container text-center height-device">
       <div class="row" style="margin-top: 82px; margin-bottom: 100px;">
       <div class="col-md-7">
-        <div class="player player-margin player-padding">
-          <video muted="" playsinline="" autoplay="" loop="" controls="" style="width: 100%;">
-			      <source :src="homeData.mediaClip" type="video/mp4">
-			    </video>
+        <div class="player player-margin player-padding" v-html="homeData.mediaClip">
         </div>
       </div>
       <div class="col-md-5">
@@ -28,8 +25,6 @@ import axios from 'axios';
 import Navbar from './../components/Navbar';
 import FooterNoCenter from './../components/FooterNoCenter';
 
-import og from 'open-graph';
-
 export default {
   beforeCreate: function() {
     document.body.className = 'home';
@@ -45,13 +40,6 @@ export default {
     const data = await axios.get(require('./../host') +'/home');
     this.homeData = data.data;
     this.success = true;
-
-    var url = "https://streamable.com/qnk8pi";
-    
-    og(url, function(err, meta){
-        console.log(err);
-        console.log(meta);
-    })
   },
   components: {
     Navbar,
