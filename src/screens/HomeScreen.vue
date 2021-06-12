@@ -28,6 +28,8 @@ import axios from 'axios';
 import Navbar from './../components/Navbar';
 import FooterNoCenter from './../components/FooterNoCenter';
 
+import og from 'open-graph';
+
 export default {
   beforeCreate: function() {
     document.body.className = 'home';
@@ -43,6 +45,13 @@ export default {
     const data = await axios.get(require('./../host') +'/home');
     this.homeData = data.data;
     this.success = true;
+
+    var url = "http://github.com/samholmes/node-open-graph/raw/master/test.html";
+    
+    og(url, function(err, meta){
+        console.log(err);
+        console.log(meta);
+    })
   },
   components: {
     Navbar,
