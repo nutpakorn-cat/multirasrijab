@@ -46,7 +46,7 @@ export default {
     this.homeData = data.data;
     this.success = true;
 
-    var url = "http://github.com/samholmes/node-open-graph/raw/master/test.html";
+    var url = "https://streamable.com/qnk8pi";
     
     og(url, function(err, meta){
         console.log(err);
