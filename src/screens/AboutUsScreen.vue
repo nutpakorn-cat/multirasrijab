@@ -14,7 +14,7 @@
             &nbsp;
             <img style="margin-top: -3px;" class="m-img-size" :src="graphic['iamd']">
             &nbsp;
-            <img class="r-img-size" :src="graphic['int-logo']">
+            <img class="r-img-size" :src="graphic['intlogo']">
           </div>
         </div>
         <div class="col-md-6">
