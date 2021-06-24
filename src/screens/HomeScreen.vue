@@ -5,7 +5,7 @@
     <div v-if="success" class="container text-center height-device">
       <div class="row" style="margin-top: 82px; margin-bottom: 100px;">
       <div class="col-md-7">
-        <div class="player player-margin player-padding" v-html="homeData.mediaClip">
+        <div class="player player-margin player-padding" v-html="homeData.mediaClip.replace('autoplay=1', 'autoplay=1&muted=1')">
         </div>
       </div>
       <div class="col-md-5">
@@ -33,10 +33,15 @@ export default {
   data() {
     return {
       homeData: {},
+      graphic: {},
       success: false
     };
   },
   async created() {
+    const graphicData = await axios.get(require('./../host') +'/graphic');
+    this.graphic = graphicData.data;
+    document.body.style = "background: linear-gradient(to right, #000000ab, #000000ab), url('" + this.graphic['home'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
+
     const data = await axios.get(require('./../host') +'/home');
     this.homeData = data.data;
     this.success = true;
@@ -47,16 +52,6 @@ export default {
   }
 }
 </script>
-
-<style>
-body.home { 
-  background: linear-gradient(to right, #000000ab, #000000ab), url('https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Home.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-</style>
 
 <style scoped>
 .player {

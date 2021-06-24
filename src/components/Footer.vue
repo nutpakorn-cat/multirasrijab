@@ -2,11 +2,11 @@
     <div class="footer">
         <div data-v-32a80de1="" class="" style="width: 100%;height: 100px;position: fixed;background-color: white;bottom: -47px;"></div>
         <router-link to="/home">
-            <div class="footer-image" :style="{backgroundImage: 'url(' + require('@/assets/PNG/Welcome_Let_sGoButton.png') + ')'}"></div>
+            <div class="footer-image" :style="{backgroundImage: 'url(' + graphic['letsgo'] + ')'}"></div>
         </router-link>
         <div class="row">
             <div class="col-md-2 text-left" style="position: relative;top: -31px;">
-                <a :href="footerData.facebook"><img :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130"></a>
+                <a :href="footerData.facebook"><img :src="graphic['facebook']" width="130"></a>
             </div>
             <div class="col-md-10 text-right" style="position: relative;top: -31px;">
                 <p class="text-footer" style="color: black;line-height: 142px;margin-right: 53px;">{{footerData.copyright}}</p>
@@ -24,10 +24,13 @@ export default {
           footerData: {
             facebook: '',
             copyright: ''
-          }
+          },
+          graphic: {}
       };
   },
   async created() {
+    const graphicData = await axios.get(require('./../host') +'/graphic');
+    this.graphic = graphicData.data;
     const data = await axios.get(require('./../host') +'/footer');
     this.footerData = data.data;
   }

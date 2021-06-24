@@ -54,7 +54,8 @@ export default {
       return {
           topicName: '',
           topicPath: '',
-          workList: []
+          workList: [],
+          grahpic: {}
       };
   },
   watch: {
@@ -62,30 +63,34 @@ export default {
       document.querySelector('body').style.backgroundImage = '';
       if (!this.$route.path.includes('work')) {
         if (this.$route.path.includes('animation'))
-          document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Animation.jpg")';
+          document.body.style = "background:  url('" + this.graphic['anim'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
         if (this.$route.path.includes('installation'))
-          document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Installation.jpg")';
+          document.body.style = "background:  url('" + this.graphic['ins'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
         if (this.$route.path.includes('corporate-and-brand-identity'))
-          document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_CI.jpg")';
+          document.body.style = "background:  url('" + this.graphic['ci'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
         if (this.$route.path.includes('campaigns'))
-          document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Campaign.jpg")';
+          document.body.style = "background:  url('" + this.graphic['ca'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
         if (this.$route.path.includes('interactive'))
-          document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Interactive_Medoa.jpg")';
+          document.body.style = "background:  url('" + this.graphic['int'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
       }
       this.fetchData();
     }
   },
-  created() {
+  async created() {
+
+    const graphicData = await axios.get(require('./../host') +'/graphic');
+    this.graphic = graphicData.data;
+
     if (this.$route.path.includes('animation'))
-      document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Animation.jpg")';
+      document.body.style = "background:  url('" + this.graphic['anim'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
     if (this.$route.path.includes('installation'))
-      document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Installation.jpg")';
+      document.body.style = "background:  url('" + this.graphic['ins'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
     if (this.$route.path.includes('corporate-and-brand-identity'))
-      document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_CI.jpg")';
+      document.body.style = "background:  url('" + this.graphic['ci'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
     if (this.$route.path.includes('campaigns'))
-      document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Topic_Campaign.jpg")';
+      document.body.style = "background:  url('" + this.graphic['ca'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
     if (this.$route.path.includes('interactive'))
-      document.querySelector('body').style.backgroundImage = 'url("https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Interactive_Medoa.jpg")';
+      document.body.style = "background:  url('" + this.graphic['int'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
     this.fetchData();
   },
   methods: {
@@ -111,18 +116,6 @@ export default {
   }
 }
 </script>
-
-<style>
-body.topic { 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-}
-</style>
 
 <style scoped>
 .player {

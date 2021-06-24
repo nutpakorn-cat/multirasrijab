@@ -1,7 +1,7 @@
 <template>
 <div data-v-41458b80="">
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-font navbar-padding" data-v-41458b80="" style="font-family:medium;background-color:transparent !important;">
-        <router-link active-class="" class="navbar-brand" to="/home"><img src="https://multirasrijab.s3-ap-southeast-1.amazonaws.com/300x300.png" style="width:83px;" data-v-41458b80=""></router-link><button class="navbar-toggler navbar-margin" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-v-41458b80=""><span class="navbar-toggler-icon" data-v-41458b80=""></span></button>
+        <router-link active-class="" class="navbar-brand" to="/home"><img :src="graphic['logo']" style="width:83px;" data-v-41458b80=""></router-link><button class="navbar-toggler navbar-margin" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-v-41458b80=""><span class="navbar-toggler-icon" data-v-41458b80=""></span></button>
         <div class="collapse navbar-collapse" id="navbarNav" data-v-41458b80="" style="padding-left: 30px;padding-right: 30px;">
             <ul v-if="isWelcome == false" class="navbar-nav" data-v-41458b80="" style="">
                 <li v-for="topic in topicList" :key="topic.topicId" class="nav-item" data-v-41458b80="" style="margin-right: 22px;"><router-link :class="{'nav-link': true, 'router-link-active': shouldActive(topic.topicPath)}" :to="'/topic/' + topic.topicPath" style="
@@ -26,10 +26,13 @@ export default {
   props: ['isWelcome'],
   data() {
       return {
-          topicList: []
+          topicList: [],
+          graphic: {}
       };
   },
   async created() {
+      const graphicData = await axios.get(require('./../host') +'/graphic');
+      this.graphic = graphicData.data;
       const data = await axios(require('./../host') +'/navbar');
       this.topicList = data.data;
   },

@@ -4,7 +4,7 @@
         <div class="row res" style="overflow: hidden;">
             <div class="col-md-2 text-left">
                 <a :href="footerData.facebook">
-                    <img class="facebook-position" :src="require('@/assets/PNG/AllPage_Facebook_ICON.png')" width="130" style="
+                    <img class="facebook-position" :src="graphic['facebook']" width="130" style="
                         top: 58px;
                         position: relative;
                     ">
@@ -26,10 +26,13 @@ export default {
           footerData: {
             facebook: '',
             copyright: ''
-          }
+          },
+          graphic: {}
       };
   },
   async created() {
+    const graphicData = await axios.get(require('./../host') +'/graphic');
+    this.graphic = graphicData.data;
     const data = await axios.get(require('./../host') +'/footer');
     this.footerData = data.data;
   }

@@ -59,15 +59,20 @@ export default {
       topicName: '',
       topicPath: '',
       workOwnerId: '',
-      work: {}
+      work: {},
+      graphic: {}
     };
   },
   watch: {
     $route (to, from) {
+        document.body.style = "background: url('" + this.graphic['works'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
         this.fetchData();
     }
   },
-  created() {
+  async created() {
+    const graphicData = await axios.get(require('./../host') +'/graphic');
+    this.graphic = graphicData.data;
+    document.body.style = "background: url('" + this.graphic['works'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
     this.fetchData();
   },
   methods: {
@@ -102,13 +107,6 @@ a.btn-theme:hover {
     color: #fff;
     background-color: #000000;
     border-color: #ffffff;
-}
-body.work { 
-  background: url('https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_Works_Animation.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 </style>
 

@@ -10,11 +10,11 @@
             <p class="content-font" style="color: white;text-shadow: rgb(0 0 0) 0px 0px 9px, rgb(0 0 0) 0px 0px 9px;">{{aboutusData.header2}}</p>
           </div>
           <div class="img-margin">
-            <img class="l-img-size" :src="require('@/assets/LOGO-BAR/SWU_College_Social_Communication_Innovation_EN_White.png')">
+            <img class="l-img-size" :src="graphic['college']">
             &nbsp;
-            <img style="margin-top: -3px;" class="m-img-size" :src="require('@/assets/LOGO-BAR/logo_iamd_white.png')">
+            <img style="margin-top: -3px;" class="m-img-size" :src="graphic['iamd']">
             &nbsp;
-            <img class="r-img-size" :src="require('@/assets/LOGO-BAR/logo_multi_white.png')">
+            <img class="r-img-size" :src="graphic['int-logo']">
           </div>
         </div>
         <div class="col-md-6">
@@ -52,26 +52,21 @@ export default {
   data() {
     return {
       aboutusData: {},
-      success: false
+      success: false,
+      graphic: {}
     };
   },
   async created() {
+    const graphicData = await axios.get(require('./../host') +'/graphic');
+    this.graphic = graphicData.data;
+    document.body.style = "background: url('" + this.graphic['aboutus'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
+
     const data = await axios.get(require('./../host') +'/about-us');
     this.aboutusData = data.data;
     this.success = true;
   }
 }
 </script>
-
-<style>
-body.aboutus { 
-  background: url('https://multirasrijab.s3-ap-southeast-1.amazonaws.com/BG/BG_About_us.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-</style>
 
 <style scoped>
 @media (min-width: 874px) {
