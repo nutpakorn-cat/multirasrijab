@@ -46,7 +46,7 @@ export default {
     width: 100%;
     text-align: center;
     overflow: hidden;
-    margin-top: -243px;
+    margin-top: -200px;
 }
 
 @media (min-width: 1018px) {
