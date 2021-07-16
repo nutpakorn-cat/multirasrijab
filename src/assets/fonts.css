@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'text';
-    src: url('sukhumvitset-text-webfont.ttf') format('truetype');
+    src: url('https://multirasrijab.s3.ap-southeast-1.amazonaws.com/fonts/text.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -15,7 +15,7 @@
 
 @font-face {
     font-family: 'medium';
-    src: url('sukhumvitset-medium-webfont.ttf') format('truetype');
+    src: url('https://multirasrijab.s3.ap-southeast-1.amazonaws.com/fonts/medium.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -23,7 +23,7 @@
 
 @font-face {
     font-family: 'bold';
-    src: url('SukhumvitSet-SemiBold.ttf') format('truetype');
+    src: url('https://multirasrijab.s3.ap-southeast-1.amazonaws.com/fonts/bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
