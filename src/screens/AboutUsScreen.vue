@@ -31,6 +31,7 @@
         </div>
       </div>
     </div>
+    <br><br><br><br><br><br><br><br>
     <FooterNotFix />
   </div>
 </template>
@@ -53,10 +54,99 @@ export default {
     return {
       aboutusData: {},
       success: false,
-      graphic: {}
+      graphic: {},
+      "name1": "19",
+      "special1": "40",
+      "header1": "100",
+      "content1": "24",
+      "right1": "20",
+      "name2": "-6",
+      "special2": "-3",
+      "header2": "-20",
+      "content2": "-6",
+      "right2": "-2",
+      "name3": "-6",
+      "special3": "-5",
+      "header3": "-20",
+      "content3": "-6",
+      "right3": "-4",
+      "name4": "-6",
+      "special4": "-8",
+      "header4": "-50",
+      "content4": "-8",
+      "right4": "-5",
+      "name5": "-9",
+      "special5": "-10",
+      "header5": "-60",
+      "content5": "-8",
+      "right5": "-6"
     };
   },
+  mounted() {
+      this.$nextTick(() => {
+          window.addEventListener('resize', this.onResize);
+      });
+  },
+  beforeDestroy() { 
+      window.removeEventListener('resize', this.onResize); 
+  },
+  methods: {
+    dec(a, b) {
+      return ((parseInt(a) + parseInt(b) <= 0) ? 10 : parseInt(a) + parseInt(b)) + 'px';
+    },
+    setSize(a, b) {
+      a.forEach((each) => {
+        each.style.fontSize = b;
+      })
+    },
+    onResize() {
+      const name = document.querySelectorAll('.name-font');
+      const special = document.querySelectorAll('.special-font');
+      const header = document.querySelectorAll('.header-font');
+      const content = document.querySelectorAll('.content-font');
+      const right = document.querySelectorAll('.right-font');
+      if (window.innerWidth > 874) {
+        this.setSize(name, this.name1 + 'px');
+        this.setSize(special, this.special1 + 'px');
+        this.setSize(header, this.header1 + 'px');
+        this.setSize(content, this.content1 + 'px');
+        this.setSize(right, this.right1 + 'px');
+      } else if (window.innerWidth > 702 && window.innerWidth <= 873) {
+        this.setSize(name, this.dec(this.name1, this.name2));
+        this.setSize(special, this.dec(this.special1, this.special2));
+        this.setSize(header, this.dec(this.header1, this.header2));
+        this.setSize(content, this.dec(this.content1, this.content2));
+        this.setSize(right, this.dec(this.right1, this.right2));
+      } else if (window.innerWidth > 622 && window.innerWidth <= 701) {
+        this.setSize(name, this.dec(this.name1, this.name3));
+        this.setSize(special, this.dec(this.special1, this.special3));
+        this.setSize(header, this.dec(this.header1, this.header3));
+        this.setSize(content, this.dec(this.content1, this.content3));
+        this.setSize(right, this.dec(this.right1, this.right3));
+      } else if (window.innerWidth > 542 && window.innerWidth <= 621) {
+        this.setSize(name, this.dec(this.name1, this.name4));
+        this.setSize(special, this.dec(this.special1, this.special4));
+        this.setSize(header, this.dec(this.header1, this.header4));
+        this.setSize(content, this.dec(this.content1, this.content4));
+        this.setSize(right, this.dec(this.right1, this.right4));
+      } else {
+        this.setSize(name, this.dec(this.name1, this.name5));
+        this.setSize(special, this.dec(this.special1, this.special5));
+        this.setSize(header, this.dec(this.header1, this.header5));
+        this.setSize(content, this.dec(this.content1, this.content5));
+        this.setSize(right, this.dec(this.right1, this.right5));
+      }
+    },
+  },
   async created() {
+    const setting = await axios.post(require('./../host') +'/setting', {
+          tableName: 'aboutSetting'
+      });
+      this.name1 = setting.data.name1;
+      this.special1 = setting.data.special1;
+      this.header1 = setting.data.header1;
+      this.content1 = setting.data.content1;
+      this.right1 = setting.data.right1;
     const graphicData = await axios.get(require('./../host') +'/graphic');
     this.graphic = graphicData.data;
     document.body.style = "background: url('" + this.graphic['aboutus'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
@@ -64,18 +154,15 @@ export default {
     const data = await axios.get(require('./../host') +'/about-us');
     this.aboutusData = data.data;
     this.success = true;
+    setTimeout(() => {
+      this.onResize();
+    }, 100);
   }
 }
 </script>
 
 <style scoped>
 @media (min-width: 874px) {
-  .name-font {
-    font-size: 19px;
-  }
-  .special-font {
-    font-size: 40px;
-  }
   .img-margin {
     margin-top: 40px;
   }
@@ -87,15 +174,6 @@ export default {
   }
   .r-img-size {
     width: 110px;
-  }
-  .header-font {
-    font-size: 100px;
-  }
-  .content-font {
-    font-size: 24px;
-  }
-  .right-font {
-    font-size: 20px;
   }
   .circle {
     background-size: cover;
@@ -134,12 +212,6 @@ export default {
 }
 
 @media (min-width: 702px) and (max-width: 873px) {
-  .name-font {
-    font-size: 13px;
-  }
-  .special-font {
-    font-size: 37px;
-  }
   .img-margin {
     margin-top: 40px;
   }
@@ -152,24 +224,9 @@ export default {
   .r-img-size {
     width: 90px;
   }
-  .header-font {
-    font-size: 80px;
-  }
-  .content-font {
-    font-size: 18px;
-  }
-  .right-font {
-    font-size: 18px;
-  }
 }
 
 @media (min-width: 622px) and (max-width: 701px) {
-  .name-font {
-    font-size: 13px;
-  }
-  .special-font {
-    font-size: 35px;
-  }
   .img-margin {
     margin-top: 40px;
   }
@@ -182,24 +239,9 @@ export default {
   .r-img-size {
     width: 80px;
   }
-  .header-font {
-    font-size: 80px;
-  }
-  .content-font {
-    font-size: 18px;
-  }
-  .right-font {
-    font-size: 16px;
-  }
 }
 
 @media (min-width: 542px) and (max-width: 621px) {
-  .name-font {
-    font-size: 13px;
-  }
-  .special-font {
-    font-size: 32px;
-  }
   .img-margin {
     margin-top: 30px;
   }
@@ -211,15 +253,6 @@ export default {
   }
   .r-img-size {
     width: 60px;
-  }
-  .header-font {
-    font-size: 50px;
-  }
-  .content-font {
-    font-size: 16px;
-  }
-  .right-font {
-    font-size: 15px;
   }
   .circle {
     background-size: cover;
@@ -233,12 +266,6 @@ export default {
 }
 
 @media (min-width: 418px) and (max-width: 541px) {
-  .name-font {
-    font-size: 10px;
-  }
-  .special-font {
-    font-size: 30px;
-  }
   .img-margin {
     margin-top: 22px;
   }
@@ -250,15 +277,6 @@ export default {
   }
   .r-img-size {
     width: 40px;
-  }
-  .header-font {
-    font-size: 40px;
-  }
-  .content-font {
-    font-size: 16px;
-  }
-  .right-font {
-    font-size: 14px;
   }
   .circle {
     background-size: cover;
@@ -272,12 +290,6 @@ export default {
 }
 
 @media (max-width: 417px) {
-  .name-font {
-    font-size: 10px;
-  }
-  .special-font {
-    font-size: 30px;
-  }
   .img-margin {
     margin-top: 22px;
   }
@@ -289,15 +301,6 @@ export default {
   }
   .r-img-size {
     width: 40px;
-  }
-  .header-font {
-    font-size: 40px;
-  }
-  .content-font {
-    font-size: 16px;
-  }
-  .right-font {
-    font-size: 14px;
   }
   .circle {
     background-size: cover;

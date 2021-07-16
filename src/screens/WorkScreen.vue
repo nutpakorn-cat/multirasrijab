@@ -60,8 +60,31 @@ export default {
       topicPath: '',
       workOwnerId: '',
       work: {},
-      graphic: {}
+      graphic: {},
+      "topic1": "23",
+      "name1": "37",
+      "owner1": "20",
+    "topic2": "-2",
+    "name2": "-2",
+    "owner2": "-2",
+    "topic3": "-4",
+    "name3": "-4",
+    "owner3": "-4",
+    "topic4": "-4",
+    "name4": "-4",
+    "owner4": "-4",
+    "topic5": "-4",
+    "name5": "-4",
+    "owner5": "-4",
     };
+  },
+  mounted() {
+      this.$nextTick(() => {
+          window.addEventListener('resize', this.onResize);
+      });
+  },
+  beforeDestroy() { 
+      window.removeEventListener('resize', this.onResize); 
   },
   watch: {
     $route (to, from) {
@@ -70,12 +93,54 @@ export default {
     }
   },
   async created() {
+
+    const setting = await axios.post(require('./../host') +'/setting', {
+        tableName: 'workSetting'
+    });
+    this.topic1 = setting.data.topic1;
+    this.name1 = setting.data.name1;
+    this.owner1 = setting.data.owner1;
+
     const graphicData = await axios.get(require('./../host') +'/graphic');
     this.graphic = graphicData.data;
     document.body.style = "background: url('" + this.graphic['works'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
     this.fetchData();
   },
   methods: {
+    dec(a, b) {
+      return ((parseInt(a) + parseInt(b) <= 0) ? 10 : parseInt(a) + parseInt(b)) + 'px';
+    },
+    setSize(a, b) {
+      a.forEach((each) => {
+        each.style.fontSize = b;
+      })
+    },
+    onResize() {
+      const name = document.querySelectorAll('.topic-font');
+      const special = document.querySelectorAll('.work-name-font');
+      const header = document.querySelectorAll('.work-owner-font');
+      if (window.innerWidth > 1200) {
+        this.setSize(name, this.topic1 + 'px');
+        this.setSize(special, this.name1 + 'px');
+        this.setSize(header, this.owner1 + 'px');
+      } else if (window.innerWidth > 992 && window.innerWidth <= 1199) {
+        this.setSize(name, this.dec(this.topic1, this.topic2));
+        this.setSize(special, this.dec(this.name1, this.name2));
+        this.setSize(header, this.dec(this.owner1, this.owner2));
+      } else if (window.innerWidth > 768 && window.innerWidth <= 991) {
+        this.setSize(name, this.dec(this.topic1, this.topic3));
+        this.setSize(special, this.dec(this.name1, this.name3));
+        this.setSize(header, this.dec(this.owner1, this.owner3));
+      } else if (window.innerWidth > 456 && window.innerWidth <= 767) {
+        this.setSize(name, this.dec(this.topic1, this.topic4));
+        this.setSize(special, this.dec(this.name1, this.name4));
+        this.setSize(header, this.dec(this.owner1, this.owner4));
+      } else {
+        this.setSize(name, this.dec(this.topic1, this.topic5));
+        this.setSize(special, this.dec(this.name1, this.name5));
+        this.setSize(header, this.dec(this.owner1, this.owner5));
+      }
+    },
     async fetchData() {
       this.workOwnerId = this.$route.params.id;
 
@@ -92,6 +157,9 @@ export default {
       });
 
       this.work = workData.data;
+      setTimeout(() => {
+        this.onResize();
+      }, 100);
     }
   }
 }
@@ -131,15 +199,6 @@ a.btn-theme:hover {
 }
 
 @media (min-width: 1200px) {
-  .topic-font {
-    font-size: 23px;
-  }
-  .work-name-font {
-    font-size: 37px;
-  }
-  .work-owner-font {
-    font-size: 20px;
-  }
   .circle {
     height: 80px;
     width: 80px;
@@ -153,15 +212,6 @@ a.btn-theme:hover {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  .topic-font {
-    font-size: 21px;
-  }
-  .work-name-font {
-    font-size: 35px;
-  }
-  .work-owner-font {
-    font-size: 18px;
-  }
   .circle {
     height: 70px;
     width: 70px;
@@ -175,15 +225,6 @@ a.btn-theme:hover {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .topic-font {
-    font-size: 19px;
-  }
-  .work-name-font {
-    font-size: 33px;
-  }
-  .work-owner-font {
-    font-size: 16px;
-  }
   .circle {
     height: 60px;
     width: 60px;
@@ -197,15 +238,6 @@ a.btn-theme:hover {
 }
 
 @media (min-width: 456px) and (max-width: 767px) {
-  .topic-font {
-    font-size: 19px;
-  }
-  .work-name-font {
-    font-size: 33px;
-  }
-  .work-owner-font {
-    font-size: 16px;
-  }
   .circle {
     height: 70px;
     width: 70px;
@@ -228,15 +260,6 @@ a.btn-theme:hover {
 }
 
 @media (max-width: 455px) {
-  .topic-font {
-    font-size: 19px;
-  }
-  .work-name-font {
-    font-size: 33px;
-  }
-  .work-owner-font {
-    font-size: 16px;
-  }
   .circle {
     height: 60px;
     width: 60px;

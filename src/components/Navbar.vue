@@ -4,13 +4,13 @@
         <router-link active-class="" class="navbar-brand" to="/home"><img :src="graphic['logo']" style="width:83px;" data-v-41458b80=""></router-link><button class="navbar-toggler navbar-margin" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-v-41458b80=""><span class="navbar-toggler-icon" data-v-41458b80=""></span></button>
         <div class="collapse navbar-collapse" id="navbarNav" data-v-41458b80="" style="padding-left: 30px;padding-right: 30px;">
             <ul v-if="isWelcome == false" class="navbar-nav" data-v-41458b80="" style="">
-                <li v-for="topic in topicList" :key="topic.topicId" class="nav-item" data-v-41458b80="" style="margin-right: 22px;"><router-link :class="{'nav-link': true, 'router-link-active': shouldActive(topic.topicPath)}" :to="'/topic/' + topic.topicPath" style="
+                <li v-for="topic in topicList" :key="topic.topicId" class="nav-item" data-v-41458b80="" style="margin-right: 22px;"><router-link @click="onClick" @mouseleave="(e) => {onLeave(e, topic.topicPath)}" @mouseenter="onHover" :class="{'nav-link': true, 'router-link-active': shouldActive(topic.topicPath)}" :to="'/topic/' + topic.topicPath" style="
                     color: white;
                 ">{{topic.topicName}}</router-link></li>
                 
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" data-v-41458b80=""><router-link class="nav-link" to="/about-us" style="
+                <li class="nav-item" data-v-41458b80=""><router-link @click="onClick" @mouseleave="(e) => {onLeave(e, 'about')}" @mouseenter="onHover" class="nav-link" to="/about-us" style="
                     color: white;
                     ">About Us</router-link></li>
             </ul>
@@ -27,16 +27,46 @@ export default {
   data() {
       return {
           topicList: [],
-          graphic: {}
+          graphic: {},
+          color: '#d3f001'
       };
   },
+  watch: {
+    $route (to, from) {
+        setTimeout(() => {
+          document.querySelector('.router-link-active').style.borderBottomColor = this.color;
+      }, 100);
+    }
+  },
   async created() {
+      const setting = await axios.post(require('./../host') +'/setting', {
+          tableName: 'navbarSetting'
+      });
+      this.color = setting.data.color;
+
       const graphicData = await axios.get(require('./../host') +'/graphic');
       this.graphic = graphicData.data;
       const data = await axios(require('./../host') +'/navbar');
       this.topicList = data.data;
+
+      setTimeout(() => {
+          document.querySelector('.router-link-active').style.borderBottomColor = this.color;
+      }, 100);
+
   },
   methods: {
+    onClick() {
+        document.querySelectorAll('.nav-link').forEach((each) => {
+            each.style.borderBottomColor = '#FFFFFF00';
+        });
+    },
+    onHover(e) {
+        e.target.style.borderBottomColor = this.color;
+    },
+    onLeave(e, path) {
+        if (!this.shouldActive(path))
+            e.target.style.borderBottomColor = '#FFFFFF00';
+    },
     shouldActive(path) {
         return this.$route.path.includes(path);
     }
@@ -45,10 +75,10 @@ export default {
 </script>
 <style scoped>
 .router-link-active {
-    border-bottom: 2px solid #d3f001!important;
+    border-bottom: 2px solid;
 }
 a.nav-link:hover {
-    border-bottom: 2px solid #d3f001;
+    border-bottom: 2px solid;
 }
 a.nav-link {
     border-bottom: 2px solid #ffffff00;

@@ -55,8 +55,36 @@ export default {
           topicName: '',
           topicPath: '',
           workList: [],
-          grahpic: {}
+          grahpic: {},
+          "project1": "20",
+          "text1": "15",
+          "name1": "14",
+          "id1": "12",
+          "project2": "-3",
+          "text2": "-3",
+          "name2": "-3",
+          "id2": "-3",
+          "project3": "-6",
+          "text3": "-1",
+          "name3": "-5",
+          "id3": "-5",
+          "project4": "-4",
+          "text4": "0",
+          "name4": "-3",
+          "id4": "-3",
+          "project5": "-6",
+          "text5": "-2",
+          "name5": "-5",
+          "id5": "-5"
       };
+  },
+  mounted() {
+      this.$nextTick(() => {
+          window.addEventListener('resize', this.onResize);
+      });
+  },
+  beforeDestroy() { 
+      window.removeEventListener('resize', this.onResize); 
   },
   watch: {
     $route (to, from) {
@@ -78,6 +106,14 @@ export default {
   },
   async created() {
 
+    const setting = await axios.post(require('./../host') +'/setting', {
+        tableName: 'topicSetting'
+    });
+    this.project1 = setting.data.project1;
+    this.text1 = setting.data.text1;
+    this.name1 = setting.data.name1;
+    this.id1 = setting.data.id1;
+
     const graphicData = await axios.get(require('./../host') +'/graphic');
     this.graphic = graphicData.data;
 
@@ -94,6 +130,46 @@ export default {
     this.fetchData();
   },
   methods: {
+    dec(a, b) {
+      return ((parseInt(a) + parseInt(b) <= 0) ? 10 : parseInt(a) + parseInt(b)) + 'px';
+    },
+    setSize(a, b) {
+      a.forEach((each) => {
+        each.style.fontSize = b;
+      })
+    },
+    onResize() {
+      const name = document.querySelectorAll('.project-name-font');
+      const special = document.querySelectorAll('.text-font');
+      const header = document.querySelectorAll('.name-font');
+      const content = document.querySelectorAll('.id-font');
+      if (window.innerWidth > 992) {
+        this.setSize(name, this.project1 + 'px');
+        this.setSize(special, this.text1 + 'px');
+        this.setSize(header, this.name1 + 'px');
+        this.setSize(content, this.id1 + 'px');
+      } else if (window.innerWidth > 792 && window.innerWidth <= 991) {
+        this.setSize(name, this.dec(this.project1, this.project2));
+        this.setSize(special, this.dec(this.text1, this.text2));
+        this.setSize(header, this.dec(this.name1, this.name2));
+        this.setSize(content, this.dec(this.id1, this.id2));
+      } else if (window.innerWidth > 722 && window.innerWidth <= 791) {
+        this.setSize(name, this.dec(this.project1, this.project3));
+        this.setSize(special, this.dec(this.text1, this.text3));
+        this.setSize(header, this.dec(this.name1, this.name3));
+        this.setSize(content, this.dec(this.id1, this.id3));
+      } else if (window.innerWidth > 721 && window.innerWidth <= 419) {
+        this.setSize(name, this.dec(this.project1, this.project4));
+        this.setSize(special, this.dec(this.text1, this.text4));
+        this.setSize(header, this.dec(this.name1, this.name4));
+        this.setSize(content, this.dec(this.id1, this.id4));
+      } else {
+        this.setSize(name, this.dec(this.project1, this.project5));
+        this.setSize(special, this.dec(this.text1, this.text5));
+        this.setSize(header, this.dec(this.name1, this.name5));
+        this.setSize(content, this.dec(this.id1, this.id5));
+      }
+    },
       goPage(workOwnerId) {
           this.$router.push('/work/' + this.topicPath + '/' + workOwnerId);
       },
@@ -112,6 +188,9 @@ export default {
           }
         });
         this.workList = workListData.data;
+        setTimeout(() => {
+          this.onResize();
+        }, 100);
       }
   }
 }
@@ -150,18 +229,6 @@ export default {
 }
 
 @media (min-width: 992px) {
-  .project-name-font {
-    font-size: 20px;
-  }
-  .text-font {
-    font-size: 15px;
-  }
-  .name-font {
-    font-size: 14px;
-  }
-  .id-font {
-    font-size: 12px;
-  }
   .circle {
       height: 55px;
       width: 55px;
@@ -178,18 +245,6 @@ export default {
 }
 
 @media (min-width: 792px) and (max-width: 991px) {
-  .project-name-font {
-    font-size: 17px;
-  }
-  .text-font {
-    font-size: 12px;
-  }
-  .name-font {
-    font-size: 11px;
-  }
-  .id-font {
-    font-size: 9px;
-  }
   .circle {
     height: 54px;
     width: 54px;
@@ -208,18 +263,6 @@ export default {
 }
 
 @media (min-width: 722px) and (max-width: 791px) {
-  .project-name-font {
-    font-size: 14px;
-  }
-  .text-font {
-    font-size: 13px;
-  }
-  .name-font {
-    font-size: 9px;
-  }
-  .id-font {
-    font-size: 7px;
-  }
   .circle {
     height: 49px;
     width: 49px;
@@ -290,18 +333,6 @@ export default {
 }
 
 @media (min-width: 419px) and (max-width: 721px) {
-  .project-name-font {
-    font-size: 16px;
-  }
-  .text-font {
-    font-size: 15px;
-  }
-  .name-font {
-    font-size: 11px;
-  }
-  .id-font {
-    font-size: 9px;
-  }
   .col-size {
     flex: 0 0 100%;
     max-width: 100%;
@@ -309,18 +340,6 @@ export default {
 }
 
 @media (max-width: 418px) {
-  .project-name-font {
-    font-size: 14px;
-  }
-  .text-font {
-    font-size: 13px;
-  }
-  .name-font {
-    font-size: 9px;
-  }
-  .id-font {
-    font-size: 7px;
-  }
   .col-size {
     flex: 0 0 100%;
     max-width: 100%;

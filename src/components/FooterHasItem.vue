@@ -82,7 +82,7 @@ a:hover {
     width: 100%;
     text-align: center;
     overflow: hidden;
-    margin-top: -103px;
+    margin-top: -153px;
 }
 @media (min-width: 500px) {
     .res {

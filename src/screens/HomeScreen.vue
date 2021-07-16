@@ -34,10 +34,84 @@ export default {
     return {
       homeData: {},
       graphic: {},
-      success: false
+      success: false,
+      windowWidth: 0,
+      header1c: 768,
+      header2ca: 677,
+      header2cb: 767, 
+      header3ca: 489,
+      header3cb: 676,
+      header4ca: 427,
+      header4cb: 488,
+      header5c: 426,
+      header1: "74",
+      header2: "-24",
+      header3: "-24",
+      header4: "-32",
+      header5: "-41",
+      des1c: 768,
+      des1: "16",
+      des2ca: 677,
+      des2cb: 767,
+      des2: "-2",
+      des3ca: 478,
+      des3cb: 676,
+      des3: "-2",
+      des4ca: 427,
+      des4cb: 488,
+      des4: "-2",
+      des5c: 426,
+      des5: "-4"
     };
   },
+  watch: {
+        
+  },
+  mounted() {
+      this.$nextTick(() => {
+          window.addEventListener('resize', this.onResize);
+      });
+  },
+  beforeDestroy() { 
+      window.removeEventListener('resize', this.onResize); 
+  },
+  methods: {
+    dec(a, b) {
+      return ((parseInt(a) + parseInt(b) <= 0) ? 5 : parseInt(a) + parseInt(b));
+    },
+    onResize() {
+      console.log(document.querySelector('.header-font').style.fontSize);
+      if (window.innerWidth > this.header1c) {
+        document.querySelector('.header-font').style.fontSize = this.header1 + 'px';
+      } else if (window.innerWidth >= this.header2ca && window.innerWidth <= this.header2cb) {
+        document.querySelector('.header-font').style.fontSize = this.dec(this.header1, this.header2) + 'px';
+      } else if (window.innerWidth >= this.header3ca && window.innerWidth <= this.header3cb) {
+        document.querySelector('.header-font').style.fontSize = this.dec(this.header1, this.header3) + 'px';
+      } else if (window.innerWidth >= this.header4ca && window.innerWidth <= this.header4cb) {
+        document.querySelector('.header-font').style.fontSize = this.dec(this.header1, this.header4) + 'px';
+      } else if (window.innerWidth >= this.header5c) {
+        document.querySelector('.header-font').style.fontSize = this.dec(this.header1, this.header5) + 'px';
+      }
+
+      if (window.innerWidth > this.des1c) {
+        document.querySelector('.description-font').style.fontSize = this.des1 + 'px';
+      } else if (window.innerWidth >= this.des2ca && window.innerWidth <= this.des2cb) {
+        document.querySelector('.description-font').style.fontSize = this.dec(this.des1, this.des2) + 'px';
+      } else if (window.innerWidth >= this.des3ca && window.innerWidth <= this.des3cb) {
+        document.querySelector('.description-font').style.fontSize = this.dec(this.des1, this.des3) + 'px';
+      } else if (window.innerWidth >= this.des4ca && window.innerWidth <= this.des4cb) {
+        document.querySelector('.description-font').style.fontSize = this.dec(this.des1, this.des4) + 'px';
+      } else if (window.innerWidth >= this.des5c) {
+        document.querySelector('.description-font').style.fontSize = this.dec(this.des1, this.des5) + 'px';
+      }
+    },
+  },
   async created() {
+    const setting = await axios.post(require('./../host') +'/setting', {
+          tableName: 'homeSetting'
+      });
+      this.header1 = setting.data.header1;
+      this.des1 = setting.data.des1;
     const graphicData = await axios.get(require('./../host') +'/graphic');
     this.graphic = graphicData.data;
     document.body.style = "background: linear-gradient(to right, #000000ab, #000000ab), url('" + this.graphic['home'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
@@ -45,6 +119,9 @@ export default {
     const data = await axios.get(require('./../host') +'/home');
     this.homeData = data.data;
     this.success = true;
+    setTimeout(() => {
+      this.onResize();
+    }, 100);
   },
   components: {
     Navbar,
@@ -74,55 +151,24 @@ export default {
 }
 
 @media (min-width: 768px) {
-
-  .header-font {
-    font-size: 74px;
-  }
-  .description-font {
-    font-size: 16px;
-  }
   .description-block {
     width: 250px;
   }
 }
 
 @media (min-width: 677px) and (max-width: 767px) {
-  .header-font {
-    font-size: 50px;
-  }
-  .description-font {
-    font-size: 14px;
-  }
   .description-block {
     width: 217px;
   }
 }
 
 @media (min-width: 489px) and (max-width: 676px) {
-  .header-font {
-    font-size: 50px;
-  }
-  .description-font {
-    font-size: 14px;
-  }
 }
 
 @media (min-width: 427px) and (max-width: 488px) {
-  .header-font {
-    font-size: 42px;
-  }
-  .description-font {
-    font-size: 14px;
-  }
 }
 
 @media (max-width: 426px) {
-  .header-font {
-    font-size: 33px;
-  }
-  .description-font {
-    font-size: 12px;
-  }
 }
 
 @media (min-width: 819px) {

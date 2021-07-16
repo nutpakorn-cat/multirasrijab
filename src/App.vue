@@ -111,7 +111,7 @@ export default {
 
 @media (min-height: 800px) {
   .height-device {
-    margin-top: 200px;
+    margin-top: 150px;
   }
   .height-device-small {
     margin-bottom: 100px;

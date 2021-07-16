@@ -68,7 +68,8 @@ export default {
             thirdImage: '',
             hasMedia: true,
             useBar: true,
-            mediaList: []
+            mediaList: [],
+            color: ''
         }
     },
     created() {
@@ -76,6 +77,10 @@ export default {
     },
     methods: {
         async fetchData() {
+            const setting = await axios.post(require('./../host') + '/setting', {
+                tableName: 'navbarSetting'
+            });
+            this.color = setting.data.color;
             const mediaListData = await axios.post(require('./../host') + '/media', {
                 workOwnerId: this.workOwnerId
             });
@@ -102,6 +107,7 @@ export default {
             this.updateSelectImage();
         },
         updateViewer() {
+            document.querySelector('.selected').style.borderColor = this.color;
             this.selectedImage = this.mediaList[this.selectedIndex].mediaPath;
             this.selectedType = this.mediaList[this.selectedIndex].mediaType;
 
@@ -205,7 +211,7 @@ export default {
     margin-bottom: 50px;
 }
 .selected {
-    border: 2px solid yellow;
+    border: 2px solid;
 }
 .thumbnail {
     background-size: cover;
