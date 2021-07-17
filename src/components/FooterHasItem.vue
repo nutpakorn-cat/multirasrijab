@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <div data-v-86d5249c="" style="width: 100%;height: 150px;position: relative;background-color: white;top: 160px;"></div>
+        <div data-v-86d5249c="" class="abcdefg" style="width: 100%;height: 150px;position: relative;top: 160px;"></div>
 
         <div class="row" style="width: 30%;
             margin-left: auto;
@@ -43,7 +43,7 @@
                 </a>
             </div>
             <div class="col-md-10 text-right">
-                <p class="text-footer" style="color: black;line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
+                <p class="bottom-text-color text-footer" style="line-height: 142px;margin-right: 53px;top: 58px;position: relative;">{{footerData.copyright}}</p>
             </div>
         </div>
     </div>
@@ -60,14 +60,29 @@ export default {
             facebook: '',
             copyright: ''
           },
-          graphic: {}
+          graphic: {},
+          bottomColor: '',
+          bottomOpacity: '',
+          bottomTextColor: ''
       };
   },
   async created() {
+      const setting = await axios.post(require('./../host') +'/setting', {
+        tableName: 'navbarSetting'
+    });
+    this.bottomColor = setting.data.bottomColor;
+    this.bottomOpacity = setting.data.bottomOpacity;
+    this.bottomTextColor = setting.data.bottomTextColor;
     const graphicData = await axios.get(require('./../host') +'/graphic');
     this.graphic = graphicData.data;
     const data = await axios.get(require('./../host') + '/footer');
     this.footerData = data.data;
+
+    setTimeout(() => {
+        document.querySelector('.abcdefg').style.backgroundColor = this.bottomColor;
+        document.querySelector('.abcdefg').style.backgroundOpacity = this.bottomOpacity;
+        document.querySelector('.bottom-text-color').style.color = this.bottomTextColor;
+    }, 100);
   }
 }
 </script>

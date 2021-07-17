@@ -75,7 +75,15 @@ export default {
           "project5": "-6",
           "text5": "-2",
           "name5": "-5",
-          "id5": "-5"
+          "id5": "-5",
+          "idColor": "#5A4099",
+          "idOpacity": "1",
+          "nameColor": "#5A4099",
+          "nameOpacity": "1",
+          "projectColor": "#5A4099",
+          "projectOpacity": "1",
+          "textColor": "#5A4099",
+          "textOpacity": "1"
       };
   },
   mounted() {
@@ -113,6 +121,15 @@ export default {
     this.text1 = setting.data.text1;
     this.name1 = setting.data.name1;
     this.id1 = setting.data.id1;
+
+    this.projectColor = setting.data.projectColor;
+    this.projectOpacity = setting.data.projectOpacity;
+    this.textColor = setting.data.textColor;
+    this.textOpacity = setting.data.textOpacity;
+    this.nameColor = setting.data.nameColor;
+    this.nameOpacity = setting.data.nameOpacity;
+    this.idColor = setting.data.idColor;
+    this.idOpacity = setting.data.idOpacity;
 
     const graphicData = await axios.get(require('./../host') +'/graphic');
     this.graphic = graphicData.data;
@@ -189,6 +206,31 @@ export default {
         });
         this.workList = workListData.data;
         setTimeout(() => {
+          const name = document.querySelectorAll('.project-name-font');
+          const special = document.querySelectorAll('.text-font');
+          const header = document.querySelectorAll('.name-font');
+          const content = document.querySelectorAll('.id-font');
+
+          name.forEach(each => {
+            each.style.color = this.projectColor;
+            each.style.opacity = this.projectOpacity;
+          });
+
+          special.forEach(each => {
+            each.style.color = this.textColor;
+            each.style.opacity = this.textOpacity;
+          });
+
+          header.forEach(each => {
+            each.style.color = this.nameColor;
+            each.style.opacity = this.nameOpacity;
+          });
+
+          content.forEach(each => {
+            each.style.color = this.idColor;
+            each.style.opacity = this.idOpacity;
+          });
+
           this.onResize();
         }, 100);
       }

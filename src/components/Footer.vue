@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <div data-v-32a80de1="" class="" style="width: 100%;height: 100px;position: fixed;background-color: white;bottom: -47px;"></div>
+        <div data-v-32a80de1="" class="abcdefg" style="width: 100%;height: 100px;position: fixed;bottom: -47px;"></div>
         <router-link to="/home">
             <div class="footer-image" :style="{backgroundImage: 'url(' + graphic['letsgo'] + ')'}"></div>
         </router-link>
@@ -9,7 +9,7 @@
                 <a :href="footerData.facebook"><img :src="graphic['facebook']" width="130"></a>
             </div>
             <div class="col-md-10 text-right" style="position: relative;top: -31px;">
-                <p class="text-footer" style="color: black;line-height: 142px;margin-right: 53px;">{{footerData.copyright}}</p>
+                <p class="bottom-text-color text-footer" style="line-height: 142px;margin-right: 53px;">{{footerData.copyright}}</p>
             </div>
         </div>
     </div>
@@ -25,14 +25,29 @@ export default {
             facebook: '',
             copyright: ''
           },
+          bottomColor: '',
+          bottomOpacity: '',
+          bottomTextColor: '',
           graphic: {}
       };
   },
   async created() {
+    const setting = await axios.post(require('./../host') +'/setting', {
+        tableName: 'navbarSetting'
+    });
+    this.bottomColor = setting.data.bottomColor;
+    this.bottomOpacity = setting.data.bottomOpacity;
+    this.bottomTextColor = setting.data.bottomTextColor;
     const graphicData = await axios.get(require('./../host') +'/graphic');
     this.graphic = graphicData.data;
     const data = await axios.get(require('./../host') +'/footer');
     this.footerData = data.data;
+
+    setTimeout(() => {
+        document.querySelector('.abcdefg').style.backgroundColor = this.bottomColor;
+        document.querySelector('.abcdefg').style.backgroundOpacity = this.bottomOpacity;
+        document.querySelector('.bottom-text-color').style.color = this.bottomTextColor;
+    }, 100);
   }
 }
 </script>

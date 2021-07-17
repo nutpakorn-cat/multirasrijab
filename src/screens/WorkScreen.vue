@@ -9,8 +9,8 @@
                   <Lightbox :key="workOwnerId" :workOwnerId="workOwnerId" />
               </div>
               <div class="col-md-5 col-size">
-                  <h4 class="topic-font" style="font-family: medium; color: #909090;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{topicName}}</h4>
-                  <h3 class="work-name-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
+                  <h4 class="topic-font" style="font-family: medium; text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{topicName}}</h4>
+                  <h3 class="work-name-font" style="font-family: medium; text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workName}}</h3>
                   <div class="row" style="margin-top: 40px;padding-left: 30px;">
                       <div class="col-md-3 text-center" style="margin-bottom: 18px;">
                           <div :style="{backgroundImage: 'url(' + work.workOwnerImage + ')'}" class="circle">
@@ -19,8 +19,8 @@
                       </div>
                       <div class="col-md-9">
                           <br>
-                          <h3 class="work-owner-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName}}</h3>
-                          <h3 class="work-owner-font" style="font-family: medium; color: white;text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h3>
+                          <h3 class="work-owner-font" style="font-family: medium; text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerName}}</h3>
+                          <h3 class="work-owner-font" style="font-family: medium; text-shadow: rgb(0, 0, 0) 0px 0px 16px, rgb(0, 0, 0) 0px 0px 16px;">{{work.workOwnerId}}</h3>
                       </div>
                   </div>
                   <a :href="work.workOwnerJournal" class="btn btn-theme" style="margin-right: 10px;">Journal</a>
@@ -76,6 +76,12 @@ export default {
     "topic5": "-4",
     "name5": "-4",
     "owner5": "-4",
+    "nameColor": "#5A4099",
+    "nameOpacity": "0.3",
+    "ownerColor": "#5A4099",
+    "ownerOpacity": "0.3",
+    "topicColor": "#5A4099",
+    "topicOpacity": "0.3"
     };
   },
   mounted() {
@@ -97,9 +103,17 @@ export default {
     const setting = await axios.post(require('./../host') +'/setting', {
         tableName: 'workSetting'
     });
+    
     this.topic1 = setting.data.topic1;
     this.name1 = setting.data.name1;
     this.owner1 = setting.data.owner1;
+
+    this.nameColor = setting.data.nameColor;
+    this.nameOpacity = setting.data.nameOpacity;
+    this.topicColor = setting.data.topicColor;
+    this.topicOpacity  = setting.data.topicOpacity;
+    this.ownerColor = setting.data.ownerColor;
+    this.ownerOpacity = setting.data.ownerOpacity;
 
     const graphicData = await axios.get(require('./../host') +'/graphic');
     this.graphic = graphicData.data;
@@ -158,6 +172,24 @@ export default {
 
       this.work = workData.data;
       setTimeout(() => {
+        const name = document.querySelectorAll('.topic-font');
+        const special = document.querySelectorAll('.work-name-font');
+        const header = document.querySelectorAll('.work-owner-font');
+
+        name.forEach(each => {
+          each.style.color = this.topicColor;
+          each.style.opacity = this.topicOpacity;
+        });
+
+        special.forEach(each => {
+          each.style.color = this.nameColor;
+          each.style.opacity = this.nameOpacity;
+        });
+
+        header.forEach(each => {
+          each.style.color = this.ownerColor;
+          each.style.opacity = this.ownerOpacity;
+        });
         this.onResize();
       }, 100);
     }

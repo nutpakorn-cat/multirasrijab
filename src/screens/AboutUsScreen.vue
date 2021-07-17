@@ -55,11 +55,21 @@ export default {
       aboutusData: {},
       success: false,
       graphic: {},
-      "name1": "19",
-      "special1": "40",
-      "header1": "100",
       "content1": "24",
+      "contentColor": "#5A4099",
+      "contentOpacity": "0.3",
+      "header1": "100",
+      "headerColor": "#5A4099",
+      "headerOpacity": "0.3",
+      "name1": "19",
+      "nameColor": "#5A4099",
+      "nameOpacity": "0.3",
       "right1": "20",
+      "rightColor": "#5A4099",
+      "rightOpacity": "0.3",
+      "special1": "40",
+      "specialColor": "#5A4099",
+      "specialOpacity": "0.3",
       "name2": "-6",
       "special2": "-3",
       "header2": "-20",
@@ -143,10 +153,20 @@ export default {
           tableName: 'aboutSetting'
       });
       this.name1 = setting.data.name1;
+      this.nameColor = setting.data.nameColor;
+      this.nameOpacity = setting.data.nameOpacity;
       this.special1 = setting.data.special1;
+      this.specialColor = setting.data.specialColor;
+      this.specialOpacity = setting.data.specialOpacity;
       this.header1 = setting.data.header1;
+      this.headerColor = setting.data.headerColor;
+      this.headerOpacity = setting.data.headerOpacity;
       this.content1 = setting.data.content1;
+      this.contentColor = setting.data.contentColor;
+      this.contentOpacity = setting.data.contentOpacity;
       this.right1 = setting.data.right1;
+      this.rightColor = setting.data.rightColor;
+      this.rightOpacity = setting.data.rightOpacity;
     const graphicData = await axios.get(require('./../host') +'/graphic');
     this.graphic = graphicData.data;
     document.body.style = "background: url('" + this.graphic['aboutus'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
@@ -155,6 +175,36 @@ export default {
     this.aboutusData = data.data;
     this.success = true;
     setTimeout(() => {
+      const name = document.querySelectorAll('.name-font');
+      const special = document.querySelectorAll('.special-font');
+      const header = document.querySelectorAll('.header-font');
+      const content = document.querySelectorAll('.content-font');
+      const right = document.querySelectorAll('.right-font');
+
+      name.forEach(each => {
+        each.style.color = this.nameColor;
+        each.style.opacity = this.nameOpacity;
+      });
+
+      special.forEach(each => {
+        each.style.color = this.specialColor;
+        each.style.opacity = this.specialOpacity;
+      });
+
+      header.forEach(each => {
+        each.style.color = this.headerColor;
+        each.style.opacity = this.headerOpacity;
+      });
+
+      content.forEach(each => {
+        each.style.color = this.contentColor;
+        each.style.opacity = this.contentOpacity;
+      });
+
+      right.forEach(each => {
+        each.style.color = this.rightColor;
+        each.style.opacity = this.rightOpacity;
+      });
       this.onResize();
     }, 100);
   }

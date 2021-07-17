@@ -36,6 +36,10 @@ export default {
       graphic: {},
       success: false,
       windowWidth: 0,
+      headerColor: '',
+      desColor: '',
+      headerOpacity: '',
+      desOpacity: '',
       header1c: 768,
       header2ca: 677,
       header2cb: 767, 
@@ -110,8 +114,13 @@ export default {
     const setting = await axios.post(require('./../host') +'/setting', {
           tableName: 'homeSetting'
       });
+      this.headerColor = setting.data.headerColor;
+      this.desColor = setting.data.desColor;
+      this.headerOpacity = setting.data.headerOpacity;
+      this.desOpacity = setting.data.desOpacity;
       this.header1 = setting.data.header1;
       this.des1 = setting.data.des1;
+      
     const graphicData = await axios.get(require('./../host') +'/graphic');
     this.graphic = graphicData.data;
     document.body.style = "background: linear-gradient(to right, #000000ab, #000000ab), url('" + this.graphic['home'] + "') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
@@ -119,8 +128,18 @@ export default {
     const data = await axios.get(require('./../host') +'/home');
     this.homeData = data.data;
     this.success = true;
+
     setTimeout(() => {
       this.onResize();
+      document.querySelectorAll('.header-font').forEach(each => {
+        each.style.color = this.headerColor;
+        each.style.opacity = this.headerOpacity;
+      });
+
+      document.querySelectorAll('.description-font').forEach(each => {
+        each.style.color = this.desColor;
+        each.style.opacity = this.desOpacity;
+      });
     }, 100);
   },
   components: {
