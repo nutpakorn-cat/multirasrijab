@@ -25,20 +25,20 @@ export default {
         this.isFade = false;
         setTimeout(() => {
           this.isLoading = false;
-        }, 2300);
+        }, 3300);
         setTimeout(() => {
           this.isFade = true;
-        }, 1300);
+        }, 2300);
         this.count = true;
       } else {
         this.isLoading = true;
         this.isFade = false;
         setTimeout(() => {
           this.isLoading = false;
-        }, 1600);
+        }, 2600);
         setTimeout(() => {
           this.isFade = true;
-        }, 600);
+        }, 1600);
       }
     }
   },
